@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--XML Database.-->
+
+<Data>
+<Tiles>
+<!--
+<Tile>
+		<Title>   </Title> - Tile title
+		<LMB>     </LMB> - filename to execute on LeftMouseButton click
+		<LMBopt>  </LMBopt> - Command line options for LMB
+		<RMB>     </RMB> - filename to execute on RightMouseButton click
+		<RMBopt>  </RMBopt> - Command line options for RMB
+		<Image>   </Image> - Image to use on the tile. May be .PNG (with relative path), .EXE or . ICO
+		<Visible>false</Visible> - true/false - Tile visibiliy. Default=False
+		<BG>MetroBlue</BG> - Tile Background. Select from <MetroColors> section 
+		<MarkRun>true</MarkRun> - true/false - Show if tile is running. Default=True
+		<Activate>false</Activate> - true/false - Activate existing window if tile is running. Default=False
+</Tile>
+-->
+<Tile>
+		<title> tOday   </title>
+		<LMB>c:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</LMB>
+		<LMBopt>/select outlook:today /recycle</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>calendar.png</Image>
+		<Visible> true </Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>calendar</Title>
+		<LMB>c:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</LMB>
+		<LMBopt>/select outlook:calendar /recycle</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>calendar.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>chaos</Title>
+		<LMB>c:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</LMB>
+		<LMBopt>/select outlook:\\vla@chaosgroup.com\Inbox /recycle</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>email.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroLime</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>begem0t</Title>
+		<LMB>c:\Program Files (x86)\Microsoft Office\Office14\OUTLOOK.EXE</LMB>
+		<LMBopt>/select outlook:\\be9em0t@gmail.com\Inbox /recycle</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>gmail_right.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroLime</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>EMPTY</Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>EMPTY</Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>start</Title>
+		<LMB>explorer.exe</LMB>
+		<LMBopt>c:\ProgramData\Microsoft\Windows\Start Menu\Programs</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>win.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroGreen</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+<Tile>
+		<Title>launchpad</Title>
+		<LMB>explorer.exe </LMB>
+		<LMBopt>/e,C:\FreePrograms\begemotUI\LaunchPad\</LMBopt>
+		<RMB>explorer.exe</RMB>
+		<RMBopt>C:\Users\vla\AppData\Roaming\Microsoft\Windows\Start Menu\Programs</RMBopt>
+		<Image>star.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroOrange</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB>explorer.exe</LMB>
+		<LMBopt>c:\FreePrograms\gentoo\Info\</LMBopt>
+		<RMB>c:\FreePrograms\EmEdit\EmEditor.exe</RMB>
+		<RMBopt>c:\FreePrograms\MetroLink\Bugs\toDo_Vla.txt</RMBopt>
+		<Image>User\Skepticat90.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+
+
+<Tile>
+		<Title>snipTool</Title>
+		<LMB>c:\windows\system32\SnippingTool.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>snip.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>kmp</Title>
+		<LMB>C:\FreePrograms\KMPlayer\KMPlayer.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\KMPlayer.new\KMPlayer.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>movie.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>Foobar</Title>
+		<LMB>c:\FreePrograms\Foobar2000\foobar2000.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>zuneColor.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>youtube</Title>
+		<LMB>http://www.youtube.com/</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>web/youtube.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>EMPTY</Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>unity</Title>
+		<LMB>W:\Work\vla\Coding\Unity\Editor\Unity.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>W:\Work\vla\Coding\Unity\Editor\Unity.exe</Image>
+		<Visible>true</Visible>
+		<BG>MetroPurple</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>vs2012</Title>
+		<LMB>W:\Work\vla\Coding\VS2012\Common7\IDE\WDExpress.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>VS2012.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroPurple</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>mobileRead</Title>
+		<LMB>http://www.mobileread.com/</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>web/MobileRead.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>calibre</Title>
+		<LMB>c:\FreePrograms\gentoo\Office\Calibre\calibre.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>calibre.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroOrange</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+
+
+<Tile>
+		<Title>vnc</Title>
+		<LMB>c:\FreePrograms\vncviewer.exe</LMB>
+		<LMBopt>-config "C:\FreePrograms\outside 87.121.1.71.vnc"</LMBopt>
+		<RMB>C:\FreePrograms\vncviewer.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>vnc.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+</Tile>
+<Tile>
+		<Title>TeamViewer</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\TeamViewer\TeamViewer_Setup8.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>teamViewer.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>skype</Title>
+		<LMB>c:\Program Files (x86)\Skype\Phone\Skype.exe</LMB>
+		<LMBopt>/username begem0t /password 1mWeasel</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>skype.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>GitHub</Title>
+		<LMB>C:\Users\begem0t\AppData\Local\Apps\2.0\4BYY2623.10M\WCDB2GDR.7Z4\gith..tion_317444273a93ac29_0001.0000_855c896e1f9f6b94\GitHub.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>C:\Users\begem0t\AppData\Local\Apps\2.0\4BYY2623.10M\WCDB2GDR.7Z4\gith..tion_317444273a93ac29_0001.0000_855c896e1f9f6b94\GitHub.exe</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>eclipse</Title>
+		<LMB>W:\Work\vla\Coding\Eclipse\adt\eclipse\eclipse.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>eclipseOrange.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>fsx</Title>
+		<LMB>w:\Games\FSX\fsx.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\FoxitReader\Foxit Reader.exe</RMB>
+		<RMBopt>w:\Games\FStools\FSX Keyboard Commands Pamphlet.pdf</RMBopt>
+		<Image>fsx.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>planG/pmS</Title>
+		<LMB>w:\Games\FStools\PlanG\Plan-G3.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>W:\Games\FStools\pmSounds\pmSounds.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>airtraffic.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>aero</Title>
+		<LMB>C:\FreePrograms\DWMHook\DWMLoader.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Info\01 System\Bat.files\restartAero.bat</RMB>
+		<RMBopt></RMBopt>
+		<Image>taskmanager.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+
+
+
+<Tile>
+		<Title>firefox</Title>
+		<LMB>C:\FreePrograms\Firefox\Nightly\firefox.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>C:\FreePrograms\Firefox\Nightly\firefox.exe</RMB>
+		<RMBopt>-private</RMBopt>
+		<Image>aurora.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>IE</Title>
+		<LMB>c:\Program Files (x86)\Internet Explorer\iexplore.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>ieWin8.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>chrome+</Title>
+		<LMB>C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>C:\Program Files (x86)\Google\Chrome\Application\chrome.exe</RMB>
+		<RMBopt>--disable-tabbed-bookmark-manager </RMBopt>
+		<Image>chromeWht.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>tor</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\Tor Browser\Start Tor Browser.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>alien.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>torrent</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\mTorrent\uTorrent.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>uTorrent.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>filezilla</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\FileZilla FTP Client\filezilla.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>filezilla.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroMagenta</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>chatzilla</Title>
+		<LMB>c:\FreePrograms\ChatZilla\chatzilla.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>star.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroMagenta</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>skydrive</Title>
+		<LMB>explorer.exe</LMB>
+		<LMBopt>W:\Work\vla\SkyDrive</LMBopt>
+		<RMB>C:\Users\begem0t\AppData\Local\Microsoft\SkyDrive\SkyDrive.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>web\SkyDrive old.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroMagenta</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+<Tile>
+		<Title>gdrive</Title>
+		<LMB>explorer.exe</LMB>
+		<LMBopt>W:\Work\vla\Google Drive</LMBopt>
+		<RMB>C:\Program Files (x86)\Google\Drive\googledrivesync.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>web\GDrive.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroMagenta</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+
+
+<Tile>
+		<Title>word</Title>
+		<LMB>WINWORD.EXE</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>office word.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>excel+</Title>
+		<LMB>EXCEL.EXE</LMB>
+		<LMBopt></LMBopt>
+		<RMB>EXCEL.EXE</RMB>
+		<RMBopt>"W:\Work\vla\SkyDrive\TT.Docs\TomTom 2012 06.xlsm"</RMBopt>
+		<Image>office excel.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+<Tile>
+		<Title>vdub</Title>
+		<LMB>c:\FreePrograms\gentoo\Media\VirtualDub\VirtualDub.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Media\VirtualDubMod\VirtualDubMod.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>virtualdub.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>cam/ezv</Title>
+		<LMB>c:\FreePrograms\Gentoo\Media\CamStudio\Recorder.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>C:\Program Files (x86)\ezvid\ezvid.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>recorder.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>sound</Title>
+		<LMB>c:\FreePrograms\gentoo\Media\Sony\Sound Forge 9 Portable\Portable Sony Sound Forge 9a.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Media\FL Studio 10\FL (extended memory).exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>pulse.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>vegas</Title>
+		<LMB>c:\FreePrograms\Gentoo\Media\Sony\Sony Vegas Pro 10 Portable\Sony Vegas Pro 10.0a Build 387 Portable.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>sonyVegas.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>scribus</Title>
+		<LMB>c:\FreePrograms\gentoo\Office\Scribus\Scribus.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>scribe.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>EmEditor</Title>
+		<LMB>c:\FreePrograms\EmEdit\EmEditor.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\Program Files (x86)\EmEditor\EmEditor.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>note.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+
+
+<Tile>
+		<Title>cs5</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\Adobe\Adobe Photoshop CS5 Portable\App\PhotoshopCS5\Photoshop.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Design\Adobe\Adobe Photoshop CS4 Portable\PhotoshopCS4portable.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>adobe psB.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>cs6</Title>
+		<LMB>c:\FreePrograms\gentoo\Design\Adobe\Adobe Illustrator CS6 Portable\IllustratorPortable.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>adobe aiOr.png</Image>
+		<BG>MetroBlue</BG>
+`		<MarkRun>true</MarkRun>
+		<Visible>true</Visible>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>CS6 dw</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\Adobe\Adobe Dreamweaver CS6 Portable\App\AdobeDreamweaverCS6\Dreamweaver.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>adobe dwGr.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title>inkscape+</Title>
+		<LMB>c:\FreePrograms\gentoo\Design\Inkscape\inkscape\inkscape.exe</LMB>
+		<LMBopt> </LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Design\Inkscape\inkscape\inkscape.exe</RMB>
+		<RMBopt> --verb=DialogFillStroke --verb=DialogLayers --verb=DialogTransform "w:\Work\vla\GUI\MetroUI\metroVla 10 Collection.svg"</RMBopt>
+		<Image>inkscapeGr.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+		<note>--verb=DialogFillStroke --verb=DialogLayers --verb=DialogTransform</note>
+</Tile>
+<Tile>
+		<Title>gimp</Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>gimp.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title>xnview</Title>
+		<LMB>c:\FreePrograms\XnView\xnview.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\EmEdit\EmEditor.exe</RMB>
+		<RMBopt>c:\FreePrograms\XnView\xnview.ini</RMBopt>
+		<Image>xnViewOr.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroMidGray</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+
+
+
+<Tile>
+		<Title>max2011 32/64</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\AD\Max2011.32\3dsmax.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>max.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>max 2013</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\AD\Max2013.64\3ds Max 2013\3dsmax.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>max.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>maya 2011</Title>
+		<LMB></LMB>
+		<LMBopt>-style cleanlooks</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>maya.png</Image>
+		<Visible>false</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>maya 2013</Title>
+		<LMB>C:\FreePrograms\Gentoo\Design\AD\Maya2013.64\bin\maya.exe</LMB>
+		<LMBopt>-style cleanlooks</LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>maya.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title>blender</Title>
+		<LMB>c:\FreePrograms\gentoo\Design\Blender\blender.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>blenderShadow.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>rhino4</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\Rhino\Rhino4\System\Rhino4.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>rhinoOr.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>rhino5</Title>
+		<LMB>C:\Program Files\Rhinoceros 5.0 Beta (64-bit)\System\Rhino.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>rhinoOr.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>TopSolid</Title>
+		<LMB>C:\FreePrograms\Gentoo\Design\TopSolid\TopSolid 7.7\bin\TopSolid.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>C:\FreePrograms\Gentoo\Design\TopSolid\TopSolid 7.7\bin\TopSolid.exe</Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Visible>true</Visible>
+</Tile>
+<Tile>
+		<Title>solidworks</Title>
+		<LMB>c:\FreePrograms\Gentoo\Design\SolidWorks\SolidWorks\SLDWORKS.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>c:\FreePrograms\Gentoo\Design\SolidWorks\SolidWorks\SLDWORKS.exe</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+
+
+<Tile>
+		<Title>versaverter</Title>
+		<LMB>c:\FreePrograms\gentoo\Office\VersaVerter\versaverter.exe</LMB>
+		<LMBopt></LMBopt>	
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>convert.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate> 
+</Tile>
+<Tile>
+		<Title>charmap</Title>
+		<LMB>c:\windows\system32\charmap.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>keybrd.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title>calc</Title>
+		<LMB>c:\Windows\System32\calc.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>calc.png</Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Visible>true</Visible>
+		<Activate>false</Activate>
+</Tile>
+<Tile>
+		<Title>ms math</Title>
+		<LMB>c:\FreePrograms\gentoo\Office\MSMath4\MathApp.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\gentoo\Office\MSMath4\ConversionTool.exe</RMB>
+		<RMBopt></RMBopt>
+		<Image>c:\FreePrograms\gentoo\Office\MSMath4\MathApp.exe</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Activate>true</Activate>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+
+
+<Tile>
+		<Title>networx</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\Networx_portable\networx.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>pulse.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>uninstall</Title>
+		<LMB>C:\FreePrograms\Gentoo\Tools\Revo Uninstaller Pro\RevoUninPro.exe</LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>UninstallWh.png</Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+		<Visible>true</Visible>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title>reg</Title>
+		<LMB>c:\FreePrograms\gentoo\Tools\RegWorkshop\RegWorkshopX64.exe</LMB>
+		<LMBopt></LMBopt>	
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>blockdevice.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>procMon+</Title>
+		<LMB>c:\FreePrograms\SysTools\SysInternals\procexp.exe</LMB>
+		<LMBopt></LMBopt>	
+		<RMB>taskmgr.exe</RMB>
+		<RMBopt> /7</RMBopt>
+		<Image>sysinternals.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title></Title>
+		<LMB></LMB>
+		<LMBopt></LMBopt>
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image></Image>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+		<Visible>false</Visible>
+</Tile>
+<Tile>
+		<Title>tcmd+</Title>
+		<LMB>C:\FreePrograms\TCmd\TOTALCMD.EXE</LMB>
+		<LMBopt></LMBopt>
+		<RMB>c:\FreePrograms\SysTools\Elevate.exe</RMB>
+		<RMBopt>C:\FreePrograms\TCmd\TOTALCMD.EXE</RMBopt>
+		<Image>commander.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<Tile>
+		<Title>powerpro</Title>
+		<LMB>c:\FreePrograms\PowerPro5\powerpro.exe</LMB>
+		<LMBopt>c:\FreePrograms\PowerPro5\\begem8t.pcf</LMBopt>	
+		<RMB>C:\FreePrograms\PowerPro5\PProConf.exe</RMB>
+		<RMBopt>c:\FreePrograms\PowerPro5\begem8t.pcf</RMBopt>
+		<Image>PowerPro.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>true</MarkRun>
+</Tile>
+<!--
+<Tile>
+		<Title>powerpro</Title>
+		<LMB>C:\FreePrograms\PowerPro5\PProConf.exe</LMB>
+		<LMBopt>c:\FreePrograms\PowerPro5\\begem8t.pcf</LMBopt>	
+		<RMB>c:\FreePrograms\PowerPro5\powerpro.exe</RMB>
+		<RMBopt>Script RunFile c:\FreePrograms\PowerPro\scripts\ShowLeftBar3.powerpro</RMBopt>
+		<Image>PowerPro.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+-->
+<Tile>
+		<title>   control   TEST    </title >
+		<LMB>control  </LMB>
+		<LMBopt></LMBopt>`
+		<RMB></RMB>
+		<RMBopt></RMBopt>
+		<Image>contol8.png</Image>
+		<Visible>true</Visible>
+		<BG>MetroBlue</BG>
+		<MarkRun>false</MarkRun>
+</Tile>
+</Tiles>
+
+<!-- Hotkey options. Use Hex values from Virtual Key codes table.
+Modkey is the sum of None(00),Alt(01),Ctrl(02),Shift(04),Winkey(08)
+Example: Alt+Shift is 5 (sum of Alt+Shift, or 1+4)
+
+Win+W:
+SetHotkey= 57
+SetModkey= 8
+
+Win+Escape
+SetHotkey= 1B
+SetModkey= 8
+
+Win+~
+SetHotkey= C0
+SetModkey= 8
+
+F15 (remapped to Capslock)
+Easy way to remap is to use http://sharpkeys.codeplex.com/
+SetHotkey= 7E
+SetModkey= 0
+
+My favorites:
+
+CapsLock: 14 (Or Win+Capslock)
+Z: 5a
+`: C0
+Esc: 1B
+F15: 7e
+
+-->
+
+<HotkeySettings>
+	<HotkeyCode>7e</HotkeyCode>
+	<ModkeyCode>0</ModkeyCode>
+</HotkeySettings>
+
+
+<MetroColors>
+<!--Standard metro colors in hex format: #r-g-b  or #alpha-r-g-b -->
+	<HEXMetroBlue>#1ba1e2</HEXMetroBlue>
+	<HEXMetroGreen>#5e9e1a</HEXMetroGreen>
+	<HEXMetroOrange>#f09609</HEXMetroOrange>
+	<!--<HEXMetroMagenta>#e32156</HEXMetroMagenta>--> <!--dark-->
+	<HEXMetroMagenta>#fc2061</HEXMetroMagenta> <!--bright-->
+	<!--<HEXMetroLime>#8cbf26</HEXMetroLime>-->
+	<HEXMetroLime>#89ca07</HEXMetroLime>
+	<!--<HEXMetroRed>#d32423</HEXMetroRed>--> <!--dark--> 
+	<!--<HEXMetroRed>#f72423</HEXMetroRed>--> <!--bright--> 
+	<HEXMetroRed>#f52c2c</HEXMetroRed>
+	<!--<HEXMetroTeal>#00aba9</HEXMetroTeal>--> <!--original--> 
+	--<HEXMetroTeal>#00c1bc</HEXMetroTeal> <!--bright--> 
+	<HEXMetroPurple>#68217a</HEXMetroPurple>
+	<!--
+	<HEXMetroPurple>#a200ff</HEXMetroPurple>
+	<HEXMetroBrown>#996600</HEXMetroBrown>-->
+	<HEXMetroBrown>#a86100</HEXMetroBrown>
+	<HEXMetroPink>#e071a3</HEXMetroPink>
+	<HEXMetroTan>#dd6022</HEXMetroTan>
+	<!--<HEXMetroMidGray>#7d7d7d</HEXMetroMidGray>-->
+	<HEXMetroMidGray>#817e77</HEXMetroMidGray>
+
+	<HEXMetroLight>#bfbfbf</HEXMetroLight>
+	<HEXMetroDark>#303030</HEXMetroDark>
+	<HEXMetroBorder>#fdd02a</HEXMetroBorder>
+	<!--<HEXMetroText>#dedee8</HEXMetroText>-->
+	<HEXMetroText>#fafafa</HEXMetroText>
+	<HEXMetroHilite>#ffffff</HEXMetroHilite>
+</MetroColors>
+
+
+<TileSettings>
+	<Columns>9</Columns>
+	<Rows>9</Rows>
+
+	<MarginTop>50</MarginTop>
+	<MarginBottom>70</MarginBottom>
+	<MarginLeft>60</MarginLeft>
+	<MarginRight>40</MarginRight>
+
+	<OffsetLeft>0</OffsetLeft>
+	<OffsetTop>0</OffsetTop>
+	<SpacingTiles>12</SpacingTiles>
+	<WideSpacing>20</WideSpacing>
+	<WideColumns>3,5</WideColumns>
+	<WideRows>2,4</WideRows>
+	<ActiveBorder>3</ActiveBorder>
+	<ImgSubfolder>Images</ImgSubfolder>
+	<ImgMissing>error.png</ImgMissing>
+	<ImgRunning>ActiveBadges\active8.png</ImgRunning>
+	<ImgRunningOpacity>.8</ImgRunningOpacity>
+	<MarkRunning> true </MarkRunning>
+<!--	<MarkRunExeptions>svchost.exe, lsass.exe, runtimebroker.exe, csrss.exe, services.exe, searchindexer.exe</MarkRunExeptions>-->
+	<MarkRunExeptions>idle, system, ntoskrnl, spoolsv, svchost, lsass, runtimebroker, csrss, services, searchindexer</MarkRunExeptions>
+
+
+
+	<TileHeight>90</TileHeight>
+	<TileWidth> 90</TileWidth>
+	
+	<TileTitleTop>73</TileTitleTop>
+	<TileTitleLeft>4</TileTitleLeft>
+	<TileFontSize>12</TileFontSize>
+	<TileFontFamily>segoe</TileFontFamily>
+	<!-- inactive
+	<TileFontStyle>Normal</TileFontStyle> 
+	<TileFontWeight>Normal</TileFontWeight>
+	-->
+	
+	<TileSetupWidth>50</TileSetupWidth>
+	<TileSetupImg>nextPageArrow.png</TileSetupImg>
+	
+	<TileIconSize>48</TileIconSize>
+	<TileIconOffset>7</TileIconOffset>
+	<TimerInterval>5</TimerInterval>
+	<insecure>1mWeasel</insecure>
+</TileSettings>
+
+</Data>
