@@ -110,57 +110,49 @@ namespace MetroForm
             /* container that will host our WPF control, we set it using 
              * the Child property */
             System.Windows.Controls.Grid hostGrid = new System.Windows.Controls.Grid();
-            ElementHost host = new ElementHost()
+            ElementHost WPFhost = new ElementHost()
             {
-                BackColor = Color.Azure,
+                BackColor = Color.Gray,
                 Dock = DockStyle.Fill,
                 Child = hostGrid,
             };
 
+            //Test create single tile
+            /*
+    		- add below it the tile color as System.Windows.Controls.Button
+    		- add over it the tile image as System.Windows.Controls.Image
+    		- add the tile title as as System.Windows.Controls.Label
+            */
 
-            //System.Windows.Controls.Button button1 = new System.Windows.Controls.Button();
-            //button1.Width = 100;
-            //button1.Height = 50;
-            //button1.MaxHeight = 150;
-            //button1.MaxWidth = 150;
-
-            //Test positioning
-            System.Windows.Controls.TextBox txtbx = new System.Windows.Controls.TextBox()
-            {
-                HorizontalScrollBarVisibility = System.Windows.Controls.ScrollBarVisibility.Visible,
-            };
-            txtbx.Width = 100;
-            txtbx.Height = 50;
-            txtbx.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            txtbx.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            //txtbx.Text = formHeight.ToString() ; //XMLSettingsIO.SettingsIO.dictSettings["imgmissing"];
             int leftPos = 22;
             int topPos = 52;
-            txtbx.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
 
+            System.Windows.Controls.Button TileBG001 = new System.Windows.Controls.Button();
+            TileBG001.Width = 90;
+            TileBG001.Height = 90;
+            TileBG001.HorizontalAlignment=System.Windows.HorizontalAlignment.Left;
+            TileBG001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            TileBG001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+            hostGrid.Children.Add(TileBG001);
 
-            //play with imgbutton
-
-            System.Windows.Controls.Button imgButt = new System.Windows.Controls.Button();
-            imgButt.Width = 100;
-            imgButt.Height = 100;
-            imgButt.Margin = new System.Windows.Thickness(leftPos + 50, topPos, 0, 0);
-
-            System.Windows.Controls.Image tileImage = new System.Windows.Controls.Image();
-            tileImage.Name = "test";
+            System.Windows.Controls.Image TileImg001 = new System.Windows.Controls.Image();
+            TileImg001.Width = 90;
+            TileImg001.Height = 90;
+            TileImg001.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+            TileImg001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+            TileImg001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
             string imgFile = "c:\\FreePrograms\\MetroLink\\Images\\airtraffic.png";
-            tileImage.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(imgFile));
+            TileImg001.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(imgFile));
+            hostGrid.Children.Add(TileImg001);
 
-            hostGrid.Children.Add(tileImage);
-            hostGrid.Children.Add(txtbx);
+            System.Windows.Controls.Label TileLbl001 = new System.Windows.Controls.Label();
+            TileLbl001.Content="Label";
+            TileLbl001.FontSize=8;
+            TileLbl001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+            hostGrid.Children.Add(TileLbl001);
 
 
-            //host.Child = hostGrid;
-            //can.Children.Add(button1);
-            //host.Child = txtbx;            
-
-            Controls.Add(host);
-
+            Controls.Add(WPFhost);
         }
 
         //Events

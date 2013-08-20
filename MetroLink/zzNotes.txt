@@ -34,3 +34,4 @@ Activate
 
 ==Unsolved Problems===
 AutoScaleWidthMult - to scale according to image DPI
+"launch from another thread" fail is keeping me from spliting the code to separate CS files
