@@ -64,7 +64,9 @@ namespace MetroForm
 
         public void RebuildForm() //set frmMetrolinkHost defaults
         {
-        GeneralUtils.printOutDict(SettingsIO.dictTiles); //TEMP
+        GeneralUtils.printOutDictTiles(SettingsIO.dictTiles); //TEMP
+        GeneralUtils.printOutDictSettings(SettingsIO.dictSettings); //TEMP
+
         //Console.WriteLine("HEX" + SettingsIO.triggerkeyVal.ToString());  //TEMP
 /*                '--Check all tiles fit on form--
         If tileCols * tileRows < TileArray.GetLength(0) Then

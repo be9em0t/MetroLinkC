@@ -361,16 +361,29 @@ namespace XMLSettingsIO
             return result; //return padded integer
           }
 
-        public static string printOutDict(Dictionary<string, MetroForm.Tile> dictInput) //Print out entire dictionary
+        public static string printOutDictTiles(Dictionary<string, MetroForm.Tile> dictInput) //Print out entire dictionary
             {
               foreach (KeyValuePair<string, MetroForm.Tile> kvp in dictInput) //list all
               {
                   //kvp.Value.Title=kvp.Value.Title + " " + kvp.Key.ToString();
-                  Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value.Title);
+                  Console.WriteLine("Tile = {0}, Value = {1}", kvp.Key, kvp.Value.Title);
               }
 
             string result = "";
             return result;
-            }      
-          }
+            }
+
+        public static string printOutDictSettings(Dictionary<string, string> dictInput) //Print out entire dictionary
+        {
+            foreach (KeyValuePair<string, string> kvp in dictInput) //list all
+            {
+                //kvp.Value.Title=kvp.Value.Title + " " + kvp.Key.ToString();
+                Console.WriteLine("Setting: {0}, Value = {1}", kvp.Key, kvp.Value);
+            }
+
+            string result = "";
+            return result;
+        }
+
+       }
 }
