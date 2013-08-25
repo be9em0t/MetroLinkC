@@ -56,35 +56,39 @@ namespace XMLSettingsIO
 
  
     public static int tileRows = 5;
-    public static  int tileCols = 5;
-    public static  int TileHeight = 90;
-    public static  int TileWidth = 90;
-    public static  int TileSetupWidth = 90;
-    public static  string TileSetupImg = "nextPageArrow.png";
-    public static  int MarginTop  = 10;
-    public static  int MarginBottom  = 10;
-    public static  int MarginLeft  = 10;
-    public static  int MarginRight  = 10;
-    public static  int OffsetTop  = 0;
-    public static  int OffsetLeft  = 0;
-    public static  int SpacingTiles = 10;
-    public static  int WideSpacing = 20;
-    public static  string[] WideColumns = {"0"};
-    public static  string[] WideRows = {"0"};
-    //public static  int ActiveBorder = 2;
-    public static  string ImgSubfolder = "images";
-    public static  string ImgMissing = "missing.png";
-    public static  string ImgRunning = "missing.png";
-    public static  double ImgRunningOpacity = 1;
-    public static  bool MarkRunning = false;
-    public static  string MarkRunExeptions = "svchost.exe, lsass.exe, runtimebroker.exe, csrss.exe, services.exe, searchindexer.exe";
-    public static  int TileTitleTop = 50;
-    public static  int TileTitleLeft = 5;
-    public static  int TileFontSize = 13;
-    public static  string TileFontFamily = "arial";
-    public static  int TileIconSize = 48;
-    public static  int TileIconOffset = 0;
-    public static  int TimerInterval = 25;
+    public static int tileCols = 5;
+    public static int MarginTop = 10;
+    public static int MarginBottom = 10;
+    public static int MarginLeft = 10;
+    public static int MarginRight = 10;
+    public static int OffsetLeft = 0;
+    public static int OffsetTop = 0;
+    public static int SpacingTiles = 10;
+    public static int WideSpacing = 20;
+    public static string[] WideColumns = {"0"};
+    public static string[] WideRows = {"0"};
+    public static  int ActiveBorder = 2;
+
+    public static string ImgSubfolder = "images";
+    public static string ImgMissing = "missing.png";
+    public static string ImgRunning = "missing.png";
+    public static double ImgRunningOpacity = 1;
+    public static bool MarkRunning = false;
+    public static string MarkRunExeptions = "svchost.exe, lsass.exe, runtimebroker.exe, csrss.exe, services.exe, searchindexer.exe";
+
+    public static int TileHeight = 90;
+    public static int TileWidth = 90;
+    public static int TileSetupWidth = 90;
+    public static string TileSetupImg = "nextPageArrow.png";
+
+    public static int TileTitleTop = 50;
+    public static int TileTitleLeft = 5;
+    public static int TileFontSize = 13;
+    public static string TileFontFamily = "arial";
+
+    public static int TileIconSize = 48;
+    public static int TileIconOffset = 0;
+    public static int TimerInterval = 25;
 
 
         public static Dictionary<String, MetroForm.Tile> dictTiles = new Dictionary<string, MetroForm.Tile>(); //Dictionary Tile instances
@@ -208,124 +212,105 @@ namespace XMLSettingsIO
                                     switch (nodeSetting.Name.ToLower().Trim()) //use lowwercase, trimmed version of XML element
 	                                {
                                         case "columns":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        tileCols=Convert.ToInt32( nodeSetting.InnerXml.Trim() );
                                         break;
                                         case "rows":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        tileRows=Convert.ToInt32( nodeSetting.InnerXml.Trim() );
                                         break;
                                         case "margintop":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarginTop = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "marginbottom":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarginBottom = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "marginleft":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarginLeft = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "marginright":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarginRight = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "offsetleft":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        OffsetLeft = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "offsettop":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        OffsetTop = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "spacingtiles":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        SpacingTiles = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "widespacing":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        WideSpacing = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "widecolumns":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        WideColumns = (nodeSetting.InnerXml.Trim()).Split(new Char [] {',', '.', ':', '\t' });                                        
+                                        //Console.WriteLine("widecolumns length and first: " + WideColumns.Length.ToString() + " " + WideColumns[0]); //TEMP
                                         break;
                                         case "widerows":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        WideRows = (nodeSetting.InnerXml.Trim()).Split(new Char [] {',', '.', ':', '\t' });
+                                        //Console.WriteLine("widecoRows length and first: " + WideRows.Length.ToString() + " " + WideRows[0]); //TEMP
                                         break;
                                         case "activeborder":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        ActiveBorder = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "imgsubfolder":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        ImgSubfolder = nodeSetting.InnerXml.Trim();
+                                        //Console.WriteLine("Image subfolder :" + ImgSubfolder + "."); //TEMP
                                         break;
                                         case "imgmissing":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        ImgMissing = nodeSetting.InnerXml.Trim();
                                         break;
                                         case "imgrunning":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        ImgRunning = nodeSetting.InnerXml.Trim();
                                         break;
                                         case "imgrunningopacity":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        ImgRunningOpacity = Convert.ToDouble( nodeSetting.InnerXml.Trim() );
+                                        Console.WriteLine("RunningOpacity: " + ImgRunningOpacity.ToString()); //TEMP
                                         break;
                                         case "markrunning":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarkRunning = Convert.ToBoolean(nodeSetting.InnerXml.Trim());
+                                        Console.WriteLine("MarkRunning: " + MarkRunning.ToString()); //TEMP
                                         break;
                                         case "markrunexeptions":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        MarkRunExeptions = nodeSetting.InnerXml.Trim();
+                                        //dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
+                                        Console.WriteLine("Running Exceptions: " + MarkRunExeptions); //TEMP
                                         break;
+
                                         case "tileheight":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileHeight = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "tilewidth":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileWidth = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
-                                        case "tiletitletop":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
-                                        break;
-                                        case "tiletitleleft":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
-                                        break;
-                                        case "tilefontsize":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
-                                        break;
-                                        case "tilefontfamily":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
-                                        break;
+
                                         case "tilesetupwidth":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileSetupWidth = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "tilesetupimg":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileSetupImg = nodeSetting.InnerXml.Trim();
                                         break;
+
+                                        case "tiletitletop":
+                                        TileTitleTop = Convert.ToInt32(nodeSetting.InnerXml.Trim());
+                                        break;
+                                        case "tiletitleleft":
+                                        TileTitleLeft = Convert.ToInt32(nodeSetting.InnerXml.Trim());
+                                        break;
+                                        case "tilefontsize":
+                                        TileFontSize = Convert.ToInt32(nodeSetting.InnerXml.Trim());
+                                        break;
+                                        case "tilefontfamily":
+                                        TileFontFamily=nodeSetting.InnerXml.Trim();
+                                        break;
+
                                         case "tileiconsize":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileIconSize = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "tileiconoffset":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TileIconOffset = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                         case "timerinterval":
-                                        dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                    //Console.WriteLine(nodeSetting.Name.ToLower().Trim() + " : " + dictSettings[nodeSetting.Name.ToLower().Trim()]); //TEMP
+                                        TimerInterval = Convert.ToInt32(nodeSetting.InnerXml.Trim());
                                         break;
                                     default:
                                         break;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XMLSettingsIO;
 
 namespace MetroForm
 {
@@ -35,6 +36,13 @@ namespace MetroForm
             return Convert.ToInt32(Index);
         }
 
+        public int[] tileColRow()
+        {
+        int[] colRow = {1,1};
+        colRow[1] = Convert.ToInt32(Index) / SettingsIO.tileCols;
+        colRow[0] = Convert.ToInt32(Index) - (SettingsIO.tileRows * colRow[1]); 
+        return colRow;
+        }
 
     }
 

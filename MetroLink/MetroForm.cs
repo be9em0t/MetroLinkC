@@ -64,15 +64,15 @@ namespace MetroForm
 
         public void RebuildForm() //set frmMetrolinkHost defaults
         {
-        GeneralUtils.printOutDictTiles(SettingsIO.dictTiles); //TEMP
-        GeneralUtils.printOutDictSettings(SettingsIO.dictSettings); //TEMP
+        //GeneralUtils.printOutDictTiles(SettingsIO.dictTiles); //TEMP
+        //GeneralUtils.printOutDictSettings(SettingsIO.dictSettings); //TEMP
 
         //Console.WriteLine("HEX" + SettingsIO.triggerkeyVal.ToString());  //TEMP
-/*                '--Check all tiles fit on form--
-        If tileCols * tileRows < TileArray.GetLength(0) Then
-            MsgBox("Number of tiles exseeds available space." + vbCrLf + "Some tiles will not display." + vbCrLf + "Please correct settings.xml file.", MsgBoxStyle.Exclamation)
-        End If
-*/
+        if (SettingsIO.tileCols * SettingsIO.tileRows < SettingsIO.dictTiles.Count)
+        {
+            MessageBox.Show("Number of tiles (" + SettingsIO.dictTiles.Count.ToString() + ") exseeds available space (" + SettingsIO.tileCols * SettingsIO.tileRows + ").\nPlease edit settings.xml", "MetroLink", MessageBoxButtons.OK , MessageBoxIcon.Error);
+            EndPogram();
+        }
 
         //this.AllowDrop=false;
         this.KeyPreview=true; //process keyboard events
@@ -132,19 +132,19 @@ namespace MetroForm
 
             //dictTileBGs.Add("zero", new System.Windows.Controls.Button());
 
-            int leftPos = 22;
-            int topPos = 52;
+            int leftPos = 95;
+            int topPos = 95;
             Dictionary<String, System.Windows.Controls.Button> dictTileBGs = new Dictionary<string, System.Windows.Controls.Button>(); //Dictionary of TilesBG buttons            
             foreach (KeyValuePair<string, Tile> kvp in SettingsIO.dictTiles) //list all
             {
-                //kvp.Value.Title=kvp.Value.Title + " " + kvp.Key.ToString();
-                Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
+                //Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
                 dictTileBGs.Add(kvp.Key + "bg", new System.Windows.Controls.Button());
                 dictTileBGs[kvp.Key+"bg"].Width=90;
                 dictTileBGs[kvp.Key+"bg"].Height=90;
                 dictTileBGs[kvp.Key + "bg"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(leftPos + kvp.Value.posHoriz(), topPos, 0, 0);
+                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(kvp.Value.tileColRow()[0] * leftPos, kvp.Value.tileColRow()[1] * topPos, 0, 0);
+                //Console.WriteLine("Tile: " + kvp.Value.Index + " row: " + kvp.Value.tileColRow());  //TEMP
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
             }
 
@@ -194,6 +194,10 @@ hostGrid.Children.Add(TileLbl001);
             //MessageBox.Show(UnregisterHotKey((IntPtr)Handle, 2).ToString());
         }
 
+        private void EndPogram()
+        {
+        Environment.Exit(0);
+        }
 
     }
 }

@@ -2,10 +2,10 @@
 - read all elelments
 DONE - load them into dict.
 	- set default variables, to be replaced by values from dict.
-- use dictionary to instantiate button objects
+- use dictionary to instantiate tile objects
     - Initialize all Tiles with info from XML or with defaults - WIP
-	- define each tile position
->>> WIP	- WPFHost.add tile at position - GIVES ARROE - cant get proper name of tile
+>>> WIP	- define each tile position 
+	- WPFHost.add tile at position
 	- loop through tiles and add them iv Visible
 		- add below it the tile color as System.Windows.Controls.Button
 		- add over it the tile image as System.Windows.Controls.Image
@@ -18,6 +18,8 @@ DONE - load them into dict.
 	- add Setup and context menu
 
 - run timer to close, fade in and fade out
+
+- capture errors
 
 ====Properties===
 Title
