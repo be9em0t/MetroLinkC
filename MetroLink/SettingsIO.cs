@@ -130,8 +130,10 @@ namespace XMLSettingsIO
 
                                 if (nodeTileCurrent.NodeType == XmlNodeType.Element)
                                 {
-                                    IEnumerator enumNodeTileCurrentProperties= nodeTileCurrent.ChildNodes.GetEnumerator(); //enum current Tile's child nodes                                   
-                                    string currentTile = "Tile" + GeneralUtils.IntDecPlaces(tileNumber); //define Tile.key
+                                    IEnumerator enumNodeTileCurrentProperties= nodeTileCurrent.ChildNodes.GetEnumerator(); //enum current Tile's child nodes
+                                    //int tileindex = GeneralUtils.IntDecPlaces(tileNumber);
+                                    string strIndex = GeneralUtils.StrDecPlaces(tileNumber);                                    
+                                    string currentTile = "Tile" + strIndex; //define Tile.key
                                     while (enumNodeTileCurrentProperties.MoveNext())
                                         {
                                             XmlNode nodeProperty = (XmlNode)enumNodeTileCurrentProperties.Current;
@@ -140,7 +142,7 @@ namespace XMLSettingsIO
                                                 switch (nodeProperty.Name.ToLower().Trim()) //use lowwercase, trimmed version of XML element
 	                                                    {
                                                             case "title":
-                                                     dictTiles.Add(currentTile, new MetroForm.Tile() { Title = nodeProperty.InnerXml.Trim() });
+                                                     dictTiles.Add(currentTile, new MetroForm.Tile() { Title = nodeProperty.InnerXml.Trim(), Index = strIndex });
                                                      break;
                                                             case "lmb":
                                                             dictTiles[currentTile].LMB=nodeProperty.InnerXml.Trim();
@@ -353,7 +355,7 @@ namespace XMLSettingsIO
             string result = strIn.ToLower().Trim();
             return result;
         }
-        public static string IntDecPlaces(int arg)
+        public static string StrDecPlaces(int arg)
         {
             string decPlaces3 = "000"; //target decimal places
             int sourcePlaces = arg.ToString().Length;
@@ -361,12 +363,21 @@ namespace XMLSettingsIO
             return result; //return padded integer
           }
 
+        public static int IntDecPlaces(int arg)
+        {
+            string decPlaces3 = "000"; //target decimal places
+            int sourcePlaces = arg.ToString().Length;
+            string result = decPlaces3.Substring(0, (decPlaces3.Length - sourcePlaces)) + arg.ToString();
+            return Convert.ToInt32( result ); //return padded integer
+        }
+
         public static string printOutDictTiles(Dictionary<string, MetroForm.Tile> dictInput) //Print out entire dictionary
             {
               foreach (KeyValuePair<string, MetroForm.Tile> kvp in dictInput) //list all
               {
                   //kvp.Value.Title=kvp.Value.Title + " " + kvp.Key.ToString();
-                  Console.WriteLine("Tile = {0}, Value = {1}", kvp.Key, kvp.Value.Title);
+                  Console.WriteLine("Tile = {0}, Value = {1}, Index = {2}", kvp.Key, kvp.Value.Title, kvp.Value.Index);
+                  //Console.WriteLine(kvp.Value.intTileIndex());
               }
 
             string result = "";

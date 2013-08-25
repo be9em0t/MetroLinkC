@@ -1,17 +1,18 @@
 ﻿SettingsIO:
 - read all elelments
 DONE - load them into dict.
->>>>> - set default variables, to be replaced by values from dict.
+	- set default variables, to be replaced by values from dict.
 - use dictionary to instantiate button objects
->>> - Initialize all Tiles with info from XML or with defaults
+    - Initialize all Tiles with info from XML or with defaults - WIP
 	- define each tile position
-	- WPFHost.add tile at position
+>>> WIP	- WPFHost.add tile at position - GIVES ARROE - cant get proper name of tile
 	- loop through tiles and add them iv Visible
 		- add below it the tile color as System.Windows.Controls.Button
 		- add over it the tile image as System.Windows.Controls.Image
 		- add the tile title as as System.Windows.Controls.Label
 		- add event handlers for left- and right-click
 		- add event handlers for drag-n-drop
+		-- Tile001 -> TileBg001, TileImg001, TileLbl001
 	- loop to add RunningBadges
 	- add Setup tile
 	- add Setup and context menu
@@ -29,6 +30,7 @@ Visible
 BG
 MarkRun
 Activate
+
 
 
 

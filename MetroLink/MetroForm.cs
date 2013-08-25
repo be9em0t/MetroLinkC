@@ -124,34 +124,51 @@ namespace MetroForm
     		- add the tile title as as System.Windows.Controls.Label
             */
 
+
+            //public static Dictionary<String, MetroForm.Tile> dictTiles = new Dictionary<string, MetroForm.Tile>(); //Dictionary Tile instances
+
+            //Dictionary<String, MetroForm.TileBG> dictTilesBG = new Dictionary<string, MetroForm.TileBG>(); //Dictionary of TilesBG
+            //dictTilesBG.Add("zero", new MetroForm.TileBG() { Width = 90, Height = 90 });
+
+            //dictTileBGs.Add("zero", new System.Windows.Controls.Button());
+
             int leftPos = 22;
             int topPos = 52;
-
-            System.Windows.Controls.Button TileBG001 = new System.Windows.Controls.Button();
-            TileBG001.Width = 90;
-            TileBG001.Height = 90;
-            TileBG001.HorizontalAlignment=System.Windows.HorizontalAlignment.Left;
-            TileBG001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            TileBG001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
-            hostGrid.Children.Add(TileBG001);
-
-            System.Windows.Controls.Image TileImg001 = new System.Windows.Controls.Image();
-            TileImg001.Width = 90;
-            TileImg001.Height = 90;
-            TileImg001.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-            TileImg001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            TileImg001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
-            string imgFile = "c:\\FreePrograms\\MetroLink\\Images\\airtraffic.png";
-            TileImg001.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(imgFile));
-            hostGrid.Children.Add(TileImg001);
-
-            System.Windows.Controls.Label TileLbl001 = new System.Windows.Controls.Label();
-            TileLbl001.Content="Label";
-            TileLbl001.FontSize=8;
-            TileLbl001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
-            hostGrid.Children.Add(TileLbl001);
+            Dictionary<String, System.Windows.Controls.Button> dictTileBGs = new Dictionary<string, System.Windows.Controls.Button>(); //Dictionary of TilesBG buttons            
+            foreach (KeyValuePair<string, Tile> kvp in SettingsIO.dictTiles) //list all
+            {
+                //kvp.Value.Title=kvp.Value.Title + " " + kvp.Key.ToString();
+                Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
+                dictTileBGs.Add(kvp.Key + "bg", new System.Windows.Controls.Button());
+                dictTileBGs[kvp.Key+"bg"].Width=90;
+                dictTileBGs[kvp.Key+"bg"].Height=90;
+                dictTileBGs[kvp.Key + "bg"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(leftPos + kvp.Value.posHoriz(), topPos, 0, 0);
+                hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
+            }
 
 
+
+            /*
+
+System.Windows.Controls.Image TileImg001 = new System.Windows.Controls.Image();
+TileImg001.Width = 90;
+TileImg001.Height = 90;
+TileImg001.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+TileImg001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
+TileImg001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+string imgFile = "c:\\FreePrograms\\MetroLink\\Images\\airtraffic.png";
+TileImg001.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(imgFile));
+hostGrid.Children.Add(TileImg001);
+
+System.Windows.Controls.Label TileLbl001 = new System.Windows.Controls.Label();
+TileLbl001.Content="Label";
+TileLbl001.FontSize=8;
+TileLbl001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+hostGrid.Children.Add(TileLbl001);
+*/
+            
             Controls.Add(WPFhost);
         }
 
