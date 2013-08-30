@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Runtime.InteropServices;
@@ -139,15 +140,24 @@ namespace MetroForm
             {
                 //Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
                 dictTileBGs.Add(kvp.Key + "bg", new System.Windows.Controls.Button());
-                dictTileBGs[kvp.Key+"bg"].Width=90;
-                dictTileBGs[kvp.Key+"bg"].Height=90;
+                dictTileBGs[kvp.Key + "bg"].Width=SettingsIO.TileWidth;
+                dictTileBGs[kvp.Key + "bg"].Height = SettingsIO.TileHeight;
                 dictTileBGs[kvp.Key + "bg"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(kvp.Value.tileColRow()[0] * leftPos, kvp.Value.tileColRow()[1] * topPos, 0, 0);
+                int currentLeftMargin = (kvp.Value.tileColRow()[0] * leftPos) + SettingsIO.MarginLeft;
+                int currentTopMargin = (kvp.Value.tileColRow()[1] * topPos) + SettingsIO.MarginTop;
+                dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg"; 
+
+                //dictTileBGs[kvp.Key + "bg"].AddHandler(System.Windows.UIElement.MouseLeftButtonDownEvent, new System.Windows.RoutedEventHandler(TileLeftClicked), true);
+                //dictTileBGs[kvp.Key + "bg"].Click += new System.Windows.RoutedEventHandler(TileClick);
+                //dictTileBGs[kvp.Key + "bg"].PreviewMouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileLeftClicked);
+                //dictTileBGs[kvp.Key + "bg"].PreviewMouseRightButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileRightClicked);
+                dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(TileMouseDown);
+
+                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(currentLeftMargin, currentTopMargin , 0, 0);
                 //Console.WriteLine("Tile: " + kvp.Value.Index + " row: " + kvp.Value.tileColRow());  //TEMP
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
             }
-
 
 
             /*
@@ -173,6 +183,40 @@ hostGrid.Children.Add(TileLbl001);
         }
 
         //Events
+        /*
+        void TileLeftClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            Console.WriteLine("LeftClick on " + item.Tag);  
+        }
+
+        void TileRightClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            Console.WriteLine("RightClick on " + item.Tag);
+
+        }
+        */
+        void TileMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            switch (e.ChangedButton.ToString())
+            {
+            case "Left":
+                    Console.WriteLine("LeftMouseDown on " + item.Tag);
+                    break;
+            case "Middle":
+                    Console.WriteLine("MiddleMouseDown on " + item.Tag);
+                    break;
+            case "Right":
+                    Console.WriteLine("RightMouseDown on " + item.Tag);
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
