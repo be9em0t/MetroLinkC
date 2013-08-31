@@ -16,43 +16,47 @@ namespace XMLSettingsIO
     Public refreshVar As Integer = 0 'TEMPorary solution for running tiles recalculation only once
 
  */
+ 
     const string XmlIniFile = "settings.xml"; //const
 
-    public static System.Drawing.Color MetroMagenta ;
-    public static System.Drawing.Color MetroPurple ;
-    public static System.Drawing.Color MetroTeal ;
-    public static System.Drawing.Color MetroLime ;
-    public static System.Drawing.Color MetroBrown ;
-    public static System.Drawing.Color MetroPink ;
-    public static System.Drawing.Color MetroOrange ;
-    public static System.Drawing.Color MetroBlue ;
-    public static System.Drawing.Color MetroRed ;
-    public static System.Drawing.Color MetroGreen ;
+    public static System.Drawing.Color MetroBlue = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#1ba1e2"));
+    public static System.Drawing.Color MetroGreen = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#5e9e1a"));
+    public static System.Drawing.Color MetroOrange = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#f09609"));
+    public static System.Drawing.Color MetroMagenta = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fc2061"));
+    public static System.Drawing.Color MetroLime = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#89ca07"));
+    public static System.Drawing.Color MetroRed = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#f52c2c"));
+    public static System.Drawing.Color MetroTeal = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#00c1bc"));
+    public static System.Drawing.Color MetroPurple = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#68217a"));
+    public static System.Drawing.Color MetroBrown = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#a86100"));
+    public static System.Drawing.Color MetroPink = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#e071a3"));
+    public static System.Drawing.Color MetroTan = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#dd6022"));
+    public static System.Drawing.Color MetroMidGray = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#817e77"));
+    public static System.Drawing.Color MetroLight = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#bfbfbf"));
+    public static System.Drawing.Color MetroDark = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#303030"));
+    public static System.Drawing.Color MetroBorder = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fdd02a"));
+    public static System.Drawing.Color MetroText = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fafafa"));
+    public static System.Drawing.Color MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#ffffff")); 
 
-    public static System.Drawing.Color MetroLight ;
-    public static System.Drawing.Color MetroDark ;
-    public static System.Drawing.Color MetroBorder ;
-    public static System.Drawing.Color MetroText ;
-    public static System.Drawing.Color MetroHilite ;
-
-    public static System.Windows.Media.SolidColorBrush MetroLightBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroDarkBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroMagentaBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroPurpleBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroTealBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroLimeBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroBrownBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroPinkBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroOrangeBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroBlueBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroRedBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroGreenBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroTextBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroBorderBrush ;
-    public static System.Windows.Media.SolidColorBrush MetroHiliteBrush ;
+    public static System.Windows.Media.SolidColorBrush MetroBlueBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroGreenBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroOrangeBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroMagentaBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroLimeBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroRedBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroTealBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroPurpleBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroBrownBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroPinkBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroTanBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroMidGrayBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroLightBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroDarkBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroBorderBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroTextBrush = new System.Windows.Media.SolidColorBrush();
+    public static System.Windows.Media.SolidColorBrush MetroHiliteBrush = new System.Windows.Media.SolidColorBrush();
 
     public static int triggerkeyVal = 0x57;
-    public static int modKeyVal = 8;
+    public static int modKeyVal = 0x2;
 
  
     public static int tileRows = 5;
@@ -90,10 +94,11 @@ namespace XMLSettingsIO
     public static int TileIconOffset = 0;
     public static int TimerInterval = 25;
 
-
+    
         public static Dictionary<String, MetroForm.Tile> dictTiles = new Dictionary<string, MetroForm.Tile>(); //Dictionary Tile instances
         public static Dictionary<String, String> dictSettings = new Dictionary<string, string>(); //Dictionary Settings
 
+        
 
         public static void XMLReadElements()
         {
@@ -120,13 +125,8 @@ namespace XMLSettingsIO
                     {
                         case "Tiles":   
                             XmlNode nodeTiles = root.ChildNodes[i]; //Evaluate All Tile nodes 
-                            Console.WriteLine("Tiles ChildNodes to process: " + nodeTiles.ChildNodes.Count.ToString());  //TEMP
-
-                            //XmlNodeList elemListNode1 = nodeRootChild.ChildNodes;
-                            //IEnumerator elemEnumNode1 = elemListNode1.GetEnumerator();
-
+                            //Console.WriteLine("Tiles ChildNodes to process: " + nodeTiles.ChildNodes.Count.ToString());  //TEMP
                             IEnumerator enumNodeTiles = nodeTiles.ChildNodes.GetEnumerator(); //enum all Tile nodes
-
                             int tileNumber = 0;
                             while (enumNodeTiles.MoveNext())
                             {
@@ -185,25 +185,105 @@ namespace XMLSettingsIO
                                   }
 
                             }
-                     
+                            break;
 
-                            break;
                         case "HotkeySettings": //Evaluate child nodes
-                            XmlNode nodeHotkeys = nodeRootChild;
-                                    Console.WriteLine("Process Hotkeys: " + nodeHotkeys.ChildNodes.Count.ToString());    //TEMP
-                        //Console.WriteLine("HotkeySettings: " + node.ChildNodes.Count.ToString());
+                            IEnumerator enumNodeHotkeys = nodeRootChild.ChildNodes.GetEnumerator(); //enum all Hotkey nodes
+                            while (enumNodeHotkeys.MoveNext())
+                            {
+                                XmlNode nodeHotkey = (XmlNode)enumNodeHotkeys.Current;
+                                if (nodeHotkey.NodeType == XmlNodeType.Element)
+                                {
+                                    switch (nodeHotkey.Name.ToLower().Trim()) //use lowwercase, trimmed version of XML element
+	                                {
+                                        case "hotkeycode":
+                                            triggerkeyVal = GeneralUtils.FromHex(nodeHotkey.InnerXml.Trim().ToLower());
+                                    break;
+                                        case "modkeycode":
+                                            modKeyVal = GeneralUtils.FromHex(nodeHotkey.InnerXml.Trim().ToLower());
+                                    break;
+                                        default:
+                                    break;
+                                    }
+                                 }
+                             }
                             break;
+
                         case "MetroColors":  //Evaluate child nodes
-                            XmlNode nodeColors = nodeRootChild;
-                                    Console.WriteLine("Process MetroColors: " + nodeColors.ChildNodes.Count.ToString()); //TEMP   
-                            //Console.WriteLine("MetroColors: " + node.ChildNodes.Count.ToString());
+                            //XmlNode nodeColors = nodeRootChild;
+                            Console.WriteLine("Process MetroColors: " + nodeRootChild.ChildNodes.Count.ToString()); //TEMP   
+                            IEnumerator enumNodeColors = nodeRootChild.ChildNodes.GetEnumerator(); //enum all Hotkey nodes
+                            while (enumNodeColors.MoveNext())
+                            {
+                                XmlNode nodeColor = (XmlNode)enumNodeColors.Current;
+                                if (nodeColor.NodeType == XmlNodeType.Element)
+                                {
+                //MetroLight = Color.FromArgb(255, colorRGB(0), colorRGB(1), colorRGB(2))
+                //MetroLightBrush.Color = System.Windows.Media.Color.FromArgb(255, CByte(colorRGB(0)), CByte(colorRGB(1)), CByte(colorRGB(2)))
+                                    switch (nodeColor.Name.ToLower().Trim()) //use lowwercase, trimmed version of XML element
+	                                {
+                                        case "hexmetroblue":
+                                    MetroBlue = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrogreen":
+                                    MetroGreen = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetroorange":
+                                    MetroOrange = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetromagenta":
+                                    MetroMagenta = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrolime":
+                                    MetroLime = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrored":
+                                    MetroRed = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetroteal":
+                                    MetroTeal = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetropurple":
+                                    MetroPurple = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrobrown":
+                                    MetroBrown = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetropink":
+                                    MetroPink = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrotan":
+                                    MetroTan = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetromidgray":
+                                    MetroMidGray = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrolight":
+                                    MetroLight = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrodark":
+                                    MetroDark = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetroborder":
+                                    MetroBorder = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrotext":
+                                    MetroText = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrohilite":
+                                    MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        default:
+                                    break;
+                                    }
+                                 }
+                             }
                             break;
 
                         case "TileSettings":  //Evaluate child nodes
                             XmlNode nodeSettings = nodeRootChild;
-                            Console.WriteLine("Process TileSettings: " + nodeSettings.ChildNodes.Count.ToString()); //TEMP
+                            //Console.WriteLine("Process TileSettings: " + nodeSettings.ChildNodes.Count.ToString()); //TEMP
                             IEnumerator enumNodeSettings = nodeSettings.ChildNodes.GetEnumerator(); //enum all Setting nodes
-                            //int tileNumber = 0;
                             while (enumNodeSettings.MoveNext())
                             {
                                 XmlNode nodeSetting = (XmlNode)enumNodeSettings.Current;
@@ -264,16 +344,16 @@ namespace XMLSettingsIO
                                         break;
                                         case "imgrunningopacity":
                                         ImgRunningOpacity = Convert.ToDouble( nodeSetting.InnerXml.Trim() );
-                                        Console.WriteLine("RunningOpacity: " + ImgRunningOpacity.ToString()); //TEMP
+                                        //Console.WriteLine("RunningOpacity: " + ImgRunningOpacity.ToString()); //TEMP
                                         break;
                                         case "markrunning":
                                         MarkRunning = Convert.ToBoolean(nodeSetting.InnerXml.Trim());
-                                        Console.WriteLine("MarkRunning: " + MarkRunning.ToString()); //TEMP
+                                        //Console.WriteLine("MarkRunning: " + MarkRunning.ToString()); //TEMP
                                         break;
                                         case "markrunexeptions":
                                         MarkRunExeptions = nodeSetting.InnerXml.Trim();
                                         //dictSettings.Add(nodeSetting.Name.ToLower().Trim(), nodeSetting.InnerXml.Trim());
-                                        Console.WriteLine("Running Exceptions: " + MarkRunExeptions); //TEMP
+                                        //Console.WriteLine("Running Exceptions: " + MarkRunExeptions); //TEMP
                                         break;
 
                                         case "tileheight":
@@ -325,6 +405,28 @@ namespace XMLSettingsIO
                     }
                 }
 
+            }
+
+            public static void FinalizeIO()
+            {
+                MetroBlueBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                //Console.WriteLine("metroblue: " + MetroBlue + " : " + nodeColor.InnerXml.Trim().ToLower() + " : " + MetroBlueBrush); //TEMP   
+                MetroGreenBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroOrangeBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroMagentaBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroLimeBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroRedBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTealBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroPurpleBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroBrownBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroPinkBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTanBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroMidGrayBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroLightBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroDarkBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroBorderBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTextBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroHiliteBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
             }
         }
 
@@ -380,6 +482,36 @@ namespace XMLSettingsIO
             string result = "";
             return result;
         }
+        public static int FromHex(string value)
+        {
+            // strip the leading 0x
+            if (value.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
+            {
+                value = value.Substring(2);
+            }
+            return Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
+        }
+        public static System.Windows.Media.Color HEXtoRGBmediaColor(string HEXcolor)
+        {
+            System.Windows.Media.Color color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFDFD991"); 
+            return color;
+        }
+        public static System.Drawing.Color HEXtoRGBdrawingColor(string HEXcolor)
+        {
+            System.Drawing.Color color = (System.Drawing.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFDFD991");
+            return color;
+        }
+        public static int HEXtoARGBcolor(string HEXcolor)
+        {
+            //string colorcode = "#FFFFFF00";
+            int argb = Int32.Parse(HEXcolor.Replace("#", "ff"), System.Globalization.NumberStyles.HexNumber);
+            //Color clr = Color.FromArgb(argb);
+            //Console.WriteLine("argb: " + argb);
+            return argb;
+        }
+
+
+        
 
        }
 }

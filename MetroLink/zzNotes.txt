@@ -33,9 +33,86 @@ BG
 MarkRun
 Activate
 
+hexmetroblue
+hexmetrogreen
+hexmetroorange
+hexmetromagenta
+hexmetrolime
+hexmetrored
+hexmetropurple
+hexmetrobrown
+hexmetropink
+hexmetrotan
+hexmetromidgray
+hexmetrolight
+hexmetrodark
+hexmetroborder
+hexmetrotext
+hexmetrohilite
 
 
 
 ==Unsolved Problems===
 AutoScaleWidthMult - to scale according to image DPI
 "launch from another thread" fail is keeping me from spliting the code to separate CS files
+
+
+==========snippets========================
+----snip Try-------
+            try
+            {
+                xmlini.Load(XmlIniFile);
+            }
+            catch (XmlException e)
+            {             
+                System.Windows.Forms.MessageBox.Show(e.Message, "MetroLink - Error in Settings file"); 
+                MetroForm.frmMetrolinkHost.ActiveForm.Close();
+                return;
+            }
+----------------
+---------snip Messagebox and Exit-------------
+            MessageBox.Show("Number of tiles (" + SettingsIO.dictTiles.Count.ToString() + ") exseeds available space (" + SettingsIO.tileCols * SettingsIO.tileRows + ").\nPlease edit settings.xml", "MetroLink", MessageBoxButtons.OK , MessageBoxIcon.Error);
+            EndPogram();
+-----------------------
+--------------snip mouseClick-----------
+                //dictTileBGs[kvp.Key + "bg"].AddHandler(System.Windows.UIElement.MouseLeftButtonDownEvent, new System.Windows.RoutedEventHandler(TileLeftClicked), true);
+                //dictTileBGs[kvp.Key + "bg"].Click += new System.Windows.RoutedEventHandler(TileClick);
+                //dictTileBGs[kvp.Key + "bg"].PreviewMouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileLeftClicked);
+                //dictTileBGs[kvp.Key + "bg"].PreviewMouseRightButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileRightClicked);
+
+        //Events
+        /*
+        void TileLeftClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            Console.WriteLine("LeftClick on " + item.Tag);  
+        }
+
+        void TileRightClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            Console.WriteLine("RightClick on " + item.Tag);
+
+        }
+        */
+----------------------------------
+
+---snip DargAndDrop---
+ public partial class Form1 : Form {
+    public Form1() {
+      InitializeComponent();
+      this.AllowDrop = true;
+      this.DragEnter += new DragEventHandler(Form1_DragEnter);
+      this.DragDrop += new DragEventHandler(Form1_DragDrop);
+    }
+
+    void Form1_DragEnter(object sender, DragEventArgs e) {
+      if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+    }
+
+    void Form1_DragDrop(object sender, DragEventArgs e) {
+      string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+      foreach (string file in files) Console.WriteLine(file);
+    }
+  }
+  -------------

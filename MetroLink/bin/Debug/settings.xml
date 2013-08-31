@@ -999,8 +999,8 @@ F15: 7e
 -->
 
 <HotkeySettings>
-	<HotkeyCode>7e</HotkeyCode>
-	<ModkeyCode>0</ModkeyCode>
+	<HotkeyCode>0x57</HotkeyCode>
+	<ModkeyCode>0x02</ModkeyCode>
 </HotkeySettings>
 
 
@@ -1009,29 +1009,19 @@ F15: 7e
 	<HEXMetroBlue>#1ba1e2</HEXMetroBlue>
 	<HEXMetroGreen>#5e9e1a</HEXMetroGreen>
 	<HEXMetroOrange>#f09609</HEXMetroOrange>
-	<!--<HEXMetroMagenta>#e32156</HEXMetroMagenta>--> <!--dark-->
 	<HEXMetroMagenta>#fc2061</HEXMetroMagenta> <!--bright-->
-	<!--<HEXMetroLime>#8cbf26</HEXMetroLime>-->
 	<HEXMetroLime>#89ca07</HEXMetroLime>
-	<!--<HEXMetroRed>#d32423</HEXMetroRed>--> <!--dark--> 
-	<!--<HEXMetroRed>#f72423</HEXMetroRed>--> <!--bright--> 
 	<HEXMetroRed>#f52c2c</HEXMetroRed>
-	<!--<HEXMetroTeal>#00aba9</HEXMetroTeal>--> <!--original--> 
-	--<HEXMetroTeal>#00c1bc</HEXMetroTeal> <!--bright--> 
+	<HEXMetroTeal>#00c1bc</HEXMetroTeal> <!--bright--> 
 	<HEXMetroPurple>#68217a</HEXMetroPurple>
-	<!--
-	<HEXMetroPurple>#a200ff</HEXMetroPurple>
-	<HEXMetroBrown>#996600</HEXMetroBrown>-->
 	<HEXMetroBrown>#a86100</HEXMetroBrown>
 	<HEXMetroPink>#e071a3</HEXMetroPink>
 	<HEXMetroTan>#dd6022</HEXMetroTan>
-	<!--<HEXMetroMidGray>#7d7d7d</HEXMetroMidGray>-->
-	<HEXMetroMidGray>#817e77</HEXMetroMidGray>
 
+	<HEXMetroMidGray>#817e77</HEXMetroMidGray>
 	<HEXMetroLight>#bfbfbf</HEXMetroLight>
 	<HEXMetroDark>#303030</HEXMetroDark>
 	<HEXMetroBorder>#fdd02a</HEXMetroBorder>
-	<!--<HEXMetroText>#dedee8</HEXMetroText>-->
 	<HEXMetroText>#fafafa</HEXMetroText>
 	<HEXMetroHilite>#ffffff</HEXMetroHilite>
 </MetroColors>

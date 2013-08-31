@@ -17,8 +17,8 @@ namespace MetroForm
 {
     public partial class frmMetrolinkHost : Form
     {
-        public double formWidth;    
-        public double formHeight;
+        //public double formWidth;    
+        //public double formHeight;
         //public double AutoScaleWidthMult; //scaling multiplier according to DPI (96 DPI = no scaling)       
         //public double AutoScaleHeightMult; 
 
@@ -57,6 +57,7 @@ namespace MetroForm
             //AutoScaleHeightMult = (0 + CurrentAutoScaleDimensions.Height) / 96;
 
             SettingsIO.XMLReadElements();
+            SettingsIO.FinalizeIO();
             InitializeComponent();
             RebuildForm();
             CreateWPFHost();    
@@ -68,14 +69,14 @@ namespace MetroForm
         //GeneralUtils.printOutDictTiles(SettingsIO.dictTiles); //TEMP
         //GeneralUtils.printOutDictSettings(SettingsIO.dictSettings); //TEMP
 
-        //Console.WriteLine("HEX" + SettingsIO.triggerkeyVal.ToString());  //TEMP
-        if (SettingsIO.tileCols * SettingsIO.tileRows < SettingsIO.dictTiles.Count)
+        if (SettingsIO.tileCols * SettingsIO.tileRows < SettingsIO.dictTiles.Count) //check for correct number of rows and columns
         {
             MessageBox.Show("Number of tiles (" + SettingsIO.dictTiles.Count.ToString() + ") exseeds available space (" + SettingsIO.tileCols * SettingsIO.tileRows + ").\nPlease edit settings.xml", "MetroLink", MessageBoxButtons.OK , MessageBoxIcon.Error);
             EndPogram();
         }
 
-        //this.AllowDrop=false;
+        ///set form size and properties
+        this.AllowDrop=false;
         this.KeyPreview=true; //process keyboard events
         this.ControlBox=false;    //Remove the control box so the form will only display client area.
         this.MaximizeBox = false;
@@ -84,35 +85,23 @@ namespace MetroForm
         this.FormBorderStyle = FormBorderStyle.None;
         this.StartPosition = FormStartPosition.Manual;
 
-        //SettingsIO.MarginLeft = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["marginleft"]);        
-        //int tileCols  = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["tilecols"]);
-        //int TileWidth  = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["tilewidth"]);
-        //int SpacingTiles = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["spacingtiles"]);
-        //int TileSetupWidth = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["tilesetupwidth"]);
-        //int MarginRight = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["marginright"]);
-        //WideColumns.Length = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["marginleft"]);
-        //int WideSpacing = Convert.ToInt32(XMLSettingsIO.SettingsIO.dictSettings["widespacing"]);
-
-        //formWidth = CInt(formWidth * frmMetrolinkHost.AutoScaleWidthMult) 'Take care of windows DPI scale
-        //formHeight = CInt(formHeight * frmMetrolinkHost.AutoScaleHeightMult)
-
-        formWidth = (SettingsIO.MarginLeft + (SettingsIO.tileCols * (SettingsIO.TileWidth + SettingsIO.SpacingTiles)) + SettingsIO.TileSetupWidth + SettingsIO.MarginRight + (SettingsIO.WideColumns.Length * SettingsIO.WideSpacing)); //replace 1 with SettingsIO.WideColumns.Length 
-        formHeight = ((SettingsIO.MarginTop + ((SettingsIO.tileRows * SettingsIO.TileHeight) + ((SettingsIO.tileRows - 1) * SettingsIO.SpacingTiles)) + SettingsIO.MarginBottom) + ((SettingsIO.WideRows.Length - 1) * SettingsIO.WideSpacing));
+        double formWidth = (SettingsIO.MarginLeft + (SettingsIO.tileCols * (SettingsIO.TileWidth + SettingsIO.SpacingTiles)) + SettingsIO.TileSetupWidth + SettingsIO.MarginRight + (SettingsIO.WideColumns.Length * SettingsIO.WideSpacing)); //replace 1 with SettingsIO.WideColumns.Length 
+        double formHeight = ((SettingsIO.MarginTop + ((SettingsIO.tileRows * SettingsIO.TileHeight) + ((SettingsIO.tileRows - 1) * SettingsIO.SpacingTiles)) + SettingsIO.MarginBottom) + ((SettingsIO.WideRows.Length - 1) * SettingsIO.WideSpacing));
         int formLeft = ((Screen.PrimaryScreen.WorkingArea.Width - Convert.ToInt32( formWidth ) ) /2) - SettingsIO.OffsetLeft;
         int formTop = 0 + SettingsIO.OffsetTop;
 
-        this.ClientSize= new System.Drawing.Size(Convert.ToInt32(formWidth), Convert.ToInt32(formHeight));
-        this.Location=new Point(formLeft,formTop);
+        this.ClientSize = new System.Drawing.Size(Convert.ToInt32(formWidth), Convert.ToInt32(formHeight));
+        this.Location = new Point(formLeft,formTop);
         }
 
         public void CreateWPFHost()
         {
 
-            /* container that will host our WPF control, we set it using 
-             * the Child property */
+            /// container that will host our WPF control, we set it using the Child property
             System.Windows.Controls.Grid hostGrid = new System.Windows.Controls.Grid();
             ElementHost WPFhost = new ElementHost()
             {
+                AllowDrop=false,
                 BackColor = Color.Gray,
                 Dock = DockStyle.Fill,
                 Child = hostGrid,
@@ -146,22 +135,23 @@ namespace MetroForm
                 dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
                 int currentLeftMargin = (kvp.Value.tileColRow()[0] * leftPos) + SettingsIO.MarginLeft;
                 int currentTopMargin = (kvp.Value.tileColRow()[1] * topPos) + SettingsIO.MarginTop;
-                dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg"; 
+                dictTileBGs[kvp.Key + "bg"].Background = SettingsIO.MetroBlueBrush;
 
-                //dictTileBGs[kvp.Key + "bg"].AddHandler(System.Windows.UIElement.MouseLeftButtonDownEvent, new System.Windows.RoutedEventHandler(TileLeftClicked), true);
-                //dictTileBGs[kvp.Key + "bg"].Click += new System.Windows.RoutedEventHandler(TileClick);
-                //dictTileBGs[kvp.Key + "bg"].PreviewMouseLeftButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileLeftClicked);
-                //dictTileBGs[kvp.Key + "bg"].PreviewMouseRightButtonDown += new System.Windows.Input.MouseButtonEventHandler(TileRightClicked);
+                dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg";
+
+
+                dictTileBGs[kvp.Key + "bg"].AllowDrop = true;
                 dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(TileMouseDown);
+                //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new System.Windows.DragEventHandler(TileDragOver); //Add effects on DragOver
+                dictTileBGs[kvp.Key + "bg"].PreviewDrop += new System.Windows.DragEventHandler(TileDrop);
 
                 dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(currentLeftMargin, currentTopMargin , 0, 0);
-                //Console.WriteLine("Tile: " + kvp.Value.Index + " row: " + kvp.Value.tileColRow());  //TEMP
+
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
             }
 
 
             /*
-
 System.Windows.Controls.Image TileImg001 = new System.Windows.Controls.Image();
 TileImg001.Width = 90;
 TileImg001.Height = 90;
@@ -182,21 +172,6 @@ hostGrid.Children.Add(TileLbl001);
             Controls.Add(WPFhost);
         }
 
-        //Events
-        /*
-        void TileLeftClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var item = sender as System.Windows.Controls.Button;
-            Console.WriteLine("LeftClick on " + item.Tag);  
-        }
-
-        void TileRightClicked(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            var item = sender as System.Windows.Controls.Button;
-            Console.WriteLine("RightClick on " + item.Tag);
-
-        }
-        */
         void TileMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             var item = sender as System.Windows.Controls.Button;
@@ -211,12 +186,32 @@ hostGrid.Children.Add(TileLbl001);
             case "Right":
                     Console.WriteLine("RightMouseDown on " + item.Tag);
                     break;
-
                 default:
                     break;
             }
-
         }
+
+        void TileDrop(object sender, System.Windows.DragEventArgs e)
+        {
+            try
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                foreach (string file in files) Console.WriteLine(file);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        /* Effects on Drag Over
+        void TileDragOver(object sender, System.Windows.DragEventArgs e)
+        {
+            var item = sender as System.Windows.Controls.Button;
+            Console.WriteLine("drag over " + item.Tag);
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effects = System.Windows.DragDropEffects.Copy;
+        }
+        */
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -226,7 +221,15 @@ hostGrid.Children.Add(TileLbl001);
         private void frmMetroForm_Load(object sender, EventArgs e)
         {
             //hotkey3 Register on Form Load 
-            var hotResult = RegisterHotKey((IntPtr)Handle, 1, MOD_CONTROL, (int)Keys.O).ToString();
+            //var hotResult = RegisterHotKey((IntPtr)Handle, 1, MOD_CONTROL, (int)Keys.O).ToString();
+            var hotResult = RegisterHotKey((IntPtr)Handle, 1, SettingsIO.modKeyVal, SettingsIO.triggerkeyVal);
+            if (hotResult==false)
+            {
+                MessageBox.Show("Hotkey unavailable. \nPlease edit settings.xml and select another hotkey.", "MetroLink", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EndPogram();
+
+                //MessageBox.Show("Hotkey combination already in use. \nPlease edit settings.xml and select another hotkey.");
+            }
 
         }
 
