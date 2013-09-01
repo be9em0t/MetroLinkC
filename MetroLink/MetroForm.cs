@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using System.Windows;
+using WPF = System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Runtime.InteropServices;
@@ -97,6 +97,13 @@ namespace MetroForm
         public void CreateWPFHost()
         {
 
+            ///WPF styles redefinition
+            WPF.Style style = new WPF.Style(typeof(WPF.Controls.Label));
+            style.Setters.Add(new WPF.Setter(WPF.Controls.Label.ForegroundProperty, GeneralUtils.ColorToBrush(SettingsIO.MetroDark)));
+
+            WPF.Style styleLbl = new WPF.Style(typeof(WPF.Controls.Label));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.ForegroundProperty, GeneralUtils.ColorToBrush(SettingsIO.MetroMidGray)));
+
             /// container that will host our WPF control, we set it using the Child property
             System.Windows.Controls.Grid hostGrid = new System.Windows.Controls.Grid();
             ElementHost WPFhost = new ElementHost()
@@ -157,12 +164,14 @@ namespace MetroForm
                 dictTileLBLs.Add(kvp.Key + "lbl", new System.Windows.Controls.Label());
                 dictTileLBLs[kvp.Key + "lbl"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 dictTileLBLs[kvp.Key + "lbl"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                dictTileLBLs[kvp.Key + "lbl"].FontFamily = new System.Windows.Media.FontFamily( SettingsIO.TileFontFamily);
-                dictTileLBLs[kvp.Key + "lbl"].FontSize= SettingsIO.TileFontSize;
-
-                dictTileLBLs[kvp.Key+"lbl"].Foreground=GeneralUtils.ColorToBrush(SettingsIO.MetroText);
+                //dictTileLBLs[kvp.Key + "lbl"].FontFamily = new System.Windows.Media.FontFamily( SettingsIO.TileFontFamily);
+                //dictTileLBLs[kvp.Key + "lbl"].FontSize= SettingsIO.TileFontSize;
+                //dictTileLBLs[kvp.Key+"lbl"].Foreground=GeneralUtils.ColorToBrush(SettingsIO.MetroText);
+                
                 dictTileLBLs[kvp.Key + "lbl"].Margin = new System.Windows.Thickness(currentLeftMargin - 5 + SettingsIO.TileTitleLeft, currentTopMargin - 5 + SettingsIO.TileTitleTop, 0, 0);
                 dictTileLBLs[kvp.Key + "lbl"].IsHitTestVisible = false;
+
+                dictTileLBLs[kvp.Key + "lbl"].Style=styleLbl;  //add custom style
 
                 dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.Title;
                 //dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.BG;
