@@ -962,7 +962,7 @@
 		<RMBopt></RMBopt>
 		<Image>contol8.png</Image>
 		<Visible>true</Visible>
-		<BG>MetroBlue</BG>
+		<BG>     Metroblue </BG>
 		<MarkRun>false</MarkRun>
 </Tile>
 </Tiles>

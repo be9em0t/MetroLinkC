@@ -57,7 +57,7 @@ namespace MetroForm
             //AutoScaleHeightMult = (0 + CurrentAutoScaleDimensions.Height) / 96;
 
             SettingsIO.XMLReadElements();
-            SettingsIO.FinalizeIO();
+            //SettingsIO.FinalizeIO();
             InitializeComponent();
             RebuildForm();
             CreateWPFHost();    
@@ -104,7 +104,7 @@ namespace MetroForm
                 AllowDrop=false,
                 BackColor = Color.Gray,
                 Dock = DockStyle.Fill,
-                Child = hostGrid,
+                Child = hostGrid,                
             };
 
             //Test create single tile
@@ -125,29 +125,51 @@ namespace MetroForm
             int leftPos = 95;
             int topPos = 95;
             Dictionary<String, System.Windows.Controls.Button> dictTileBGs = new Dictionary<string, System.Windows.Controls.Button>(); //Dictionary of TilesBG buttons            
+            Dictionary<String, System.Windows.Controls.Label> dictTileLBLs = new Dictionary<string, System.Windows.Controls.Label>(); //Dictionary of Tile labels            
+
+
             foreach (KeyValuePair<string, Tile> kvp in SettingsIO.dictTiles) //list all
             {
+                ///TileBG construction
                 //Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
                 dictTileBGs.Add(kvp.Key + "bg", new System.Windows.Controls.Button());
                 dictTileBGs[kvp.Key + "bg"].Width=SettingsIO.TileWidth;
                 dictTileBGs[kvp.Key + "bg"].Height = SettingsIO.TileHeight;
                 dictTileBGs[kvp.Key + "bg"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
                 dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
+
                 int currentLeftMargin = (kvp.Value.tileColRow()[0] * leftPos) + SettingsIO.MarginLeft;
                 int currentTopMargin = (kvp.Value.tileColRow()[1] * topPos) + SettingsIO.MarginTop;
-                dictTileBGs[kvp.Key + "bg"].Background = SettingsIO.MetroBlueBrush;
+                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(currentLeftMargin, currentTopMargin, 0, 0);
+                dictTileBGs[kvp.Key + "bg"].Padding = new System.Windows.Thickness(0);
+                //dictTileBGs[kvp.Key + "bg"].Style=kvp.Value.styleTest;
 
+                dictTileBGs[kvp.Key + "bg"].Background = kvp.Value.MetroSolidBrush();
                 dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg";
-
 
                 dictTileBGs[kvp.Key + "bg"].AllowDrop = true;
                 dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(TileMouseDown);
-                //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new System.Windows.DragEventHandler(TileDragOver); //Add effects on DragOver
+                //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new System.Windows.DragEventHandler(TileDragOver); //Could add effects on DragOver
                 dictTileBGs[kvp.Key + "bg"].PreviewDrop += new System.Windows.DragEventHandler(TileDrop);
 
-                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(currentLeftMargin, currentTopMargin , 0, 0);
+
+                ///Label construction
+                dictTileLBLs.Add(kvp.Key + "lbl", new System.Windows.Controls.Label());
+                dictTileLBLs[kvp.Key + "lbl"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
+                dictTileLBLs[kvp.Key + "lbl"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
+                dictTileLBLs[kvp.Key + "lbl"].FontFamily = new System.Windows.Media.FontFamily( SettingsIO.TileFontFamily);
+                dictTileLBLs[kvp.Key + "lbl"].FontSize= SettingsIO.TileFontSize;
+
+                dictTileLBLs[kvp.Key+"lbl"].Foreground=GeneralUtils.ColorToBrush(SettingsIO.MetroText);
+                dictTileLBLs[kvp.Key + "lbl"].Margin = new System.Windows.Thickness(currentLeftMargin - 5 + SettingsIO.TileTitleLeft, currentTopMargin - 5 + SettingsIO.TileTitleTop, 0, 0);
+                dictTileLBLs[kvp.Key + "lbl"].IsHitTestVisible = false;
+
+                dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.Title;
+                //dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.BG;
 
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
+                hostGrid.Children.Add(dictTileLBLs[kvp.Key + "lbl"]);
+
             }
 
 
@@ -168,7 +190,7 @@ TileLbl001.FontSize=8;
 TileLbl001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
 hostGrid.Children.Add(TileLbl001);
 */
-            
+            //WPFhost.Invoke += new System.Windows.Controls.i
             Controls.Add(WPFhost);
         }
 

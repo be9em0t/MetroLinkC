@@ -9,7 +9,7 @@ namespace MetroForm
 {
     public class Tile
     {
-        public string Index { get; set; }
+        /*public string Index { get; set; }
         public string Title { get; set; }
         public string LMB { get; set; }
         public string LMBopt { get; set; }
@@ -20,6 +20,18 @@ namespace MetroForm
         public string BG { get; set; }
         public string MarkRun { get; set; }
         public string Activate { get; set; }
+        */
+        public string Index;
+        public string Title;
+        public string LMB;
+        public string LMBopt;
+        public string RMB;
+        public string RMBopt;
+        public string Image;
+        public string Visible;
+        public string BG;
+        public string MarkRun;
+        public string Activate;
 
         public int intTileIndex ()
         {
@@ -44,6 +56,85 @@ namespace MetroForm
         return colRow;
         }
 
+        public System.Drawing.Color MetroColor()
+        {
+            System.Drawing.Color metroClr = new System.Drawing.Color();
+            switch (BG.ToLower().Trim()) //use lowwercase, trimmed version of XML element
+            {
+                case "metroblue":
+                    metroClr= SettingsIO.MetroBlue;
+                    break;
+                case "metrogreen":
+                    metroClr = SettingsIO.MetroGreen;
+                    break;
+                case "metroorange":
+                    metroClr = SettingsIO.MetroOrange;
+                    break;
+                case "metromagenta":
+                    metroClr = SettingsIO.MetroMagenta;
+                    break;
+                case "metrolime":
+                    metroClr = SettingsIO.MetroLime;
+                    break;
+                case "metrored":
+                    metroClr = SettingsIO.MetroRed;
+                    break;
+                case "metroteal":
+                    metroClr = SettingsIO.MetroTeal;
+                    break;
+                case "metropurple":
+                    metroClr = SettingsIO.MetroPurple;
+                    break;
+                case "metrobrown":
+                    metroClr = SettingsIO.MetroBrown;
+                    break;
+                case "metropink":
+                    metroClr = SettingsIO.MetroPink;
+                    break;
+                case "metrotan":
+                    metroClr = SettingsIO.MetroTan;
+                    break;
+                case "metromidgray":
+                    metroClr = SettingsIO.MetroMidGray;
+                    break;
+                case "metrolight":
+                    metroClr = SettingsIO.MetroLight;
+                    break;
+                case "metrodark":
+                    metroClr = SettingsIO.MetroDark;
+                    break;
+                case "metroborder":
+                    metroClr = SettingsIO.MetroBorder;
+                    break;
+                case "metrotext":
+                    metroClr = SettingsIO.MetroText;
+                    break;
+                case "metrohilite":
+                    metroClr = SettingsIO.MetroHilite;
+                    break;
+                default:
+                    break;
+            }
+            return metroClr;
+        }
+
+        public System.Windows.Media.SolidColorBrush MetroSolidBrush()
+        {
+            System.Drawing.Color inColor = MetroColor();
+            System.Windows.Media.SolidColorBrush metroSolidBr = new System.Windows.Media.SolidColorBrush();
+            metroSolidBr.Color = System.Windows.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
+            return metroSolidBr;
+        }
+
+        /*
+        public System.Windows.Style styleTest = new System.Windows.Style
+        {
+            TargetType = typeof(System.Windows.Controls.Control)            
+        };
+
+        style.Setters.Add(new Setter(Control.ForegroundProperty, Brushes.Green));
+        myControl.Style = style;
+        */
     }
 
     public class TileBG

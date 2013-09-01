@@ -9,6 +9,7 @@ using System.Collections;
 
 namespace XMLSettingsIO
 {
+
     public static class SettingsIO
     {
         //Variables
@@ -407,6 +408,7 @@ namespace XMLSettingsIO
 
             }
 
+            /*
             public static void FinalizeIO()
             {
                 MetroBlueBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
@@ -428,6 +430,7 @@ namespace XMLSettingsIO
                 MetroTextBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
                 MetroHiliteBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
             }
+            */
         }
 
     public static class GeneralUtils
@@ -511,7 +514,13 @@ namespace XMLSettingsIO
         }
 
 
-        
+        public static System.Windows.Media.SolidColorBrush ColorToBrush(System.Drawing.Color inColor)
+        {
+            System.Windows.Media.SolidColorBrush clrBrush = new System.Windows.Media.SolidColorBrush();
+            clrBrush.Color = System.Windows.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
+            return clrBrush;
+        }
 
+        
        }
 }
