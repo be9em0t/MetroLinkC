@@ -1038,7 +1038,7 @@ F15: 7e
 
 	<OffsetLeft>0</OffsetLeft>
 	<OffsetTop>0</OffsetTop>
-	<SpacingTiles>12</SpacingTiles>
+	<SpacingTiles>8</SpacingTiles>
 	<WideSpacing>20</WideSpacing>
 	<WideColumns>3,5</WideColumns>
 	<WideRows>2,4</WideRows>
@@ -1056,8 +1056,8 @@ F15: 7e
 	<TileHeight>90</TileHeight>
 	<TileWidth> 90</TileWidth>
 	
-	<TileTitleTop>73</TileTitleTop>
-	<TileTitleLeft>4</TileTitleLeft>
+	<TileTitleTop>67</TileTitleTop>
+	<TileTitleLeft>2</TileTitleLeft>
 	<TileFontSize>12</TileFontSize>
 	<TileFontFamily>segoe</TileFontFamily>
 	<!-- inactive

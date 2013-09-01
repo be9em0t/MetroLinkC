@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Collections;
+using WPF = System.Windows;
 
 
 namespace XMLSettingsIO
@@ -38,23 +39,23 @@ namespace XMLSettingsIO
     public static System.Drawing.Color MetroText = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fafafa"));
     public static System.Drawing.Color MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#ffffff")); 
 
-    public static System.Windows.Media.SolidColorBrush MetroBlueBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroGreenBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroOrangeBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroMagentaBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroLimeBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroRedBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroTealBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroPurpleBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroBrownBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroPinkBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroTanBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroMidGrayBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroLightBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroDarkBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroBorderBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroTextBrush = new System.Windows.Media.SolidColorBrush();
-    public static System.Windows.Media.SolidColorBrush MetroHiliteBrush = new System.Windows.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroBlueBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroGreenBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroOrangeBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroMagentaBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroLimeBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroRedBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroTealBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroPurpleBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroBrownBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroPinkBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroTanBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroMidGrayBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroLightBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroDarkBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroBorderBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroTextBrush = new WPF.Media.SolidColorBrush();
+    public static WPF.Media.SolidColorBrush MetroHiliteBrush = new WPF.Media.SolidColorBrush();
 
     public static int triggerkeyVal = 0x57;
     public static int modKeyVal = 0x2;
@@ -88,7 +89,7 @@ namespace XMLSettingsIO
 
     public static int TileTitleTop = 50;
     public static int TileTitleLeft = 5;
-    public static int TileFontSize = 13;
+    public static double TileFontSize = 13;
     public static string TileFontFamily = "arial";
 
     public static int TileIconSize = 48;
@@ -109,7 +110,7 @@ namespace XMLSettingsIO
                 xmlini.Load(XmlIniFile);
             }
             catch (XmlException e)
-            {             
+            {
                 System.Windows.Forms.MessageBox.Show(e.Message, "MetroLink - Error in Settings file"); 
                 MetroForm.frmMetrolinkHost.ActiveForm.Close();
                 return;
@@ -220,7 +221,7 @@ namespace XMLSettingsIO
                                 if (nodeColor.NodeType == XmlNodeType.Element)
                                 {
                 //MetroLight = Color.FromArgb(255, colorRGB(0), colorRGB(1), colorRGB(2))
-                //MetroLightBrush.Color = System.Windows.Media.Color.FromArgb(255, CByte(colorRGB(0)), CByte(colorRGB(1)), CByte(colorRGB(2)))
+                //MetroLightBrush.Color = WPF.Media.Color.FromArgb(255, CByte(colorRGB(0)), CByte(colorRGB(1)), CByte(colorRGB(2)))
                                     switch (nodeColor.Name.ToLower().Trim()) //use lowwercase, trimmed version of XML element
 	                                {
                                         case "hexmetroblue":
@@ -411,24 +412,24 @@ namespace XMLSettingsIO
             /*
             public static void FinalizeIO()
             {
-                MetroBlueBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroBlueBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
                 //Console.WriteLine("metroblue: " + MetroBlue + " : " + nodeColor.InnerXml.Trim().ToLower() + " : " + MetroBlueBrush); //TEMP   
-                MetroGreenBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroOrangeBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroMagentaBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroLimeBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroRedBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroTealBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroPurpleBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroBrownBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroPinkBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroTanBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroMidGrayBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroLightBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroDarkBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroBorderBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroTextBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
-                MetroHiliteBrush.Color = System.Windows.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroGreenBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroOrangeBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroMagentaBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroLimeBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroRedBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTealBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroPurpleBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroBrownBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroPinkBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTanBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroMidGrayBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroLightBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroDarkBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroBorderBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroTextBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
+                MetroHiliteBrush.Color = WPF.Media.Color.FromArgb(MetroBlue.A, MetroBlue.R, MetroBlue.G, MetroBlue.B);
             }
             */
         }
@@ -494,14 +495,14 @@ namespace XMLSettingsIO
             }
             return Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
         }
-        public static System.Windows.Media.Color HEXtoRGBmediaColor(string HEXcolor)
+        public static WPF.Media.Color HEXtoRGBmediaColor(string HEXcolor)
         {
-            System.Windows.Media.Color color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFDFD991"); 
+            WPF.Media.Color color = (WPF.Media.Color)WPF.Media.ColorConverter.ConvertFromString("#FFDFD991"); 
             return color;
         }
         public static System.Drawing.Color HEXtoRGBdrawingColor(string HEXcolor)
         {
-            System.Drawing.Color color = (System.Drawing.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FFDFD991");
+            System.Drawing.Color color = (System.Drawing.Color)WPF.Media.ColorConverter.ConvertFromString("#FFDFD991");
             return color;
         }
         public static int HEXtoARGBcolor(string HEXcolor)
@@ -514,10 +515,10 @@ namespace XMLSettingsIO
         }
 
 
-        public static System.Windows.Media.SolidColorBrush ColorToBrush(System.Drawing.Color inColor)
+        public static WPF.Media.SolidColorBrush ColorToBrush(System.Drawing.Color inColor)
         {
-            System.Windows.Media.SolidColorBrush clrBrush = new System.Windows.Media.SolidColorBrush();
-            clrBrush.Color = System.Windows.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
+            WPF.Media.SolidColorBrush clrBrush = new WPF.Media.SolidColorBrush();
+            clrBrush.Color = WPF.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
             return clrBrush;
         }
 

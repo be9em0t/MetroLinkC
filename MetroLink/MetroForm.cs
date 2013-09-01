@@ -6,10 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WPF = System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 using System.Runtime.InteropServices;
+using WPF = System.Windows;
 using XMLSettingsIO;
 
 
@@ -94,18 +94,39 @@ namespace MetroForm
         this.Location = new Point(formLeft,formTop);
         }
 
+        /// Redefine styles, if necessary
+        public WPF.Style styleLbl = new WPF.Style(typeof(WPF.Controls.Label));
+        public WPF.Style styleButt = new WPF.Style(typeof(WPF.Controls.Button));
+        public void WPFStyles()
+        {
+            ///WPF styles redefinition
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.SnapsToDevicePixelsProperty, true));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.FocusableProperty, false));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.FocusVisualStyleProperty, null));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.AllowDropProperty, true));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.HorizontalAlignmentProperty, WPF.HorizontalAlignment.Left));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.VerticalAlignmentProperty, WPF.VerticalAlignment.Top));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.WidthProperty, Convert.ToDouble( SettingsIO.TileWidth )));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.HeightProperty, Convert.ToDouble( SettingsIO.TileHeight )));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.PaddingProperty, new WPF.Thickness(-4)));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderThicknessProperty, new WPF.Thickness(0)));
+            styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderBrushProperty, WPF.Media.Brushes.Transparent));
+
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.HorizontalAlignmentProperty, WPF.HorizontalAlignment.Left));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.VerticalAlignmentProperty, WPF.VerticalAlignment.Top));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.ForegroundProperty, GeneralUtils.ColorToBrush(SettingsIO.MetroText)));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.FontFamilyProperty, new WPF.Media.FontFamily(SettingsIO.TileFontFamily)));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.FontSizeProperty, SettingsIO.TileFontSize));
+            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.IsHitTestVisibleProperty, false));
+
+        }
+
         public void CreateWPFHost()
         {
-
-            ///WPF styles redefinition
-            WPF.Style style = new WPF.Style(typeof(WPF.Controls.Label));
-            style.Setters.Add(new WPF.Setter(WPF.Controls.Label.ForegroundProperty, GeneralUtils.ColorToBrush(SettingsIO.MetroDark)));
-
-            WPF.Style styleLbl = new WPF.Style(typeof(WPF.Controls.Label));
-            styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.ForegroundProperty, GeneralUtils.ColorToBrush(SettingsIO.MetroMidGray)));
+            WPFStyles(); // activate redefined styles
 
             /// container that will host our WPF control, we set it using the Child property
-            System.Windows.Controls.Grid hostGrid = new System.Windows.Controls.Grid();
+            WPF.Controls.Grid hostGrid = new WPF.Controls.Grid();
             ElementHost WPFhost = new ElementHost()
             {
                 AllowDrop=false,
@@ -116,9 +137,9 @@ namespace MetroForm
 
             //Test create single tile
             /*
-    		- add below it the tile color as System.Windows.Controls.Button
-    		- add over it the tile image as System.Windows.Controls.Image
-    		- add the tile title as as System.Windows.Controls.Label
+    		- add below it the tile color as WPF.Controls.Button DONE
+    		- add over it the tile image as WPF.Controls.Image
+    		- add the tile title as as WPF.Controls.Label
             */
 
 
@@ -127,55 +148,39 @@ namespace MetroForm
             //Dictionary<String, MetroForm.TileBG> dictTilesBG = new Dictionary<string, MetroForm.TileBG>(); //Dictionary of TilesBG
             //dictTilesBG.Add("zero", new MetroForm.TileBG() { Width = 90, Height = 90 });
 
-            //dictTileBGs.Add("zero", new System.Windows.Controls.Button());
+            //dictTileBGs.Add("zero", new WPF.Controls.Button());
 
-            int leftPos = 95;
-            int topPos = 95;
-            Dictionary<String, System.Windows.Controls.Button> dictTileBGs = new Dictionary<string, System.Windows.Controls.Button>(); //Dictionary of TilesBG buttons            
-            Dictionary<String, System.Windows.Controls.Label> dictTileLBLs = new Dictionary<string, System.Windows.Controls.Label>(); //Dictionary of Tile labels            
+            //int leftPos = Convert.ToDouble( SettingsIO.TileWidth );
+            //int topPos = Convert.ToDouble( SettingsIO.TileHeight );
+            Dictionary<String, WPF.Controls.Button> dictTileBGs = new Dictionary<string, WPF.Controls.Button>(); //Dictionary of TilesBG buttons            
+            Dictionary<String, WPF.Controls.Label> dictTileLBLs = new Dictionary<string, WPF.Controls.Label>(); //Dictionary of Tile labels            
 
 
             foreach (KeyValuePair<string, Tile> kvp in SettingsIO.dictTiles) //list all
             {
-                ///TileBG construction
-                //Console.WriteLine("add TileBG: {0}", kvp.Key + "bg");
-                dictTileBGs.Add(kvp.Key + "bg", new System.Windows.Controls.Button());
-                dictTileBGs[kvp.Key + "bg"].Width=SettingsIO.TileWidth;
-                dictTileBGs[kvp.Key + "bg"].Height = SettingsIO.TileHeight;
-                dictTileBGs[kvp.Key + "bg"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                dictTileBGs[kvp.Key + "bg"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
-
-                int currentLeftMargin = (kvp.Value.tileColRow()[0] * leftPos) + SettingsIO.MarginLeft;
-                int currentTopMargin = (kvp.Value.tileColRow()[1] * topPos) + SettingsIO.MarginTop;
-                dictTileBGs[kvp.Key + "bg"].Margin = new System.Windows.Thickness(currentLeftMargin, currentTopMargin, 0, 0);
-                dictTileBGs[kvp.Key + "bg"].Padding = new System.Windows.Thickness(0);
-                //dictTileBGs[kvp.Key + "bg"].Style=kvp.Value.styleTest;
-
+                ///current TileBG 
+                dictTileBGs.Add(kvp.Key + "bg", new WPF.Controls.Button());
+                dictTileBGs[kvp.Key + "bg"].Style = styleButt;
+                int currentLeftMargin = (kvp.Value.tileColRow()[0] * (SettingsIO.TileWidth + SettingsIO.SpacingTiles)) + SettingsIO.MarginLeft;
+                int currentTopMargin = (kvp.Value.tileColRow()[1] * (SettingsIO.TileHeight + SettingsIO.SpacingTiles)) + SettingsIO.MarginTop;
+                dictTileBGs[kvp.Key + "bg"].Margin = new WPF.Thickness(currentLeftMargin, currentTopMargin, 0, 0);
                 dictTileBGs[kvp.Key + "bg"].Background = kvp.Value.MetroSolidBrush();
                 dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg";
-
-                dictTileBGs[kvp.Key + "bg"].AllowDrop = true;
-                dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new System.Windows.Input.MouseButtonEventHandler(TileMouseDown);
-                //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new System.Windows.DragEventHandler(TileDragOver); //Could add effects on DragOver
-                dictTileBGs[kvp.Key + "bg"].PreviewDrop += new System.Windows.DragEventHandler(TileDrop);
+                dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new WPF.Input.MouseButtonEventHandler(TileMouseDown);
+                //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new WPF.DragEventHandler(TileDragOver); //Could add effects on DragOver
+                dictTileBGs[kvp.Key + "bg"].PreviewDrop += new WPF.DragEventHandler(TileDrop);
 
 
-                ///Label construction
-                dictTileLBLs.Add(kvp.Key + "lbl", new System.Windows.Controls.Label());
-                dictTileLBLs[kvp.Key + "lbl"].HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-                dictTileLBLs[kvp.Key + "lbl"].VerticalAlignment = System.Windows.VerticalAlignment.Top;
-                //dictTileLBLs[kvp.Key + "lbl"].FontFamily = new System.Windows.Media.FontFamily( SettingsIO.TileFontFamily);
-                //dictTileLBLs[kvp.Key + "lbl"].FontSize= SettingsIO.TileFontSize;
-                //dictTileLBLs[kvp.Key+"lbl"].Foreground=GeneralUtils.ColorToBrush(SettingsIO.MetroText);
-                
-                dictTileLBLs[kvp.Key + "lbl"].Margin = new System.Windows.Thickness(currentLeftMargin - 5 + SettingsIO.TileTitleLeft, currentTopMargin - 5 + SettingsIO.TileTitleTop, 0, 0);
-                dictTileLBLs[kvp.Key + "lbl"].IsHitTestVisible = false;
+                ///current Label 
+                dictTileLBLs.Add(kvp.Key + "lbl", new WPF.Controls.Label());
+                dictTileLBLs[kvp.Key + "lbl"].Style = styleLbl;  //add custom style                                
+                dictTileLBLs[kvp.Key + "lbl"].Margin = new WPF.Thickness(currentLeftMargin + SettingsIO.TileTitleLeft, currentTopMargin + SettingsIO.TileTitleTop, 0, 0);
 
-                dictTileLBLs[kvp.Key + "lbl"].Style=styleLbl;  //add custom style
 
                 dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.Title;
                 //dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.BG;
 
+                //=========Add WPF elements to grid====================
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);
                 hostGrid.Children.Add(dictTileLBLs[kvp.Key + "lbl"]);
 
@@ -183,29 +188,36 @@ namespace MetroForm
 
 
             /*
-System.Windows.Controls.Image TileImg001 = new System.Windows.Controls.Image();
+WPF.Controls.Image TileImg001 = new WPF.Controls.Image();
 TileImg001.Width = 90;
 TileImg001.Height = 90;
-TileImg001.HorizontalAlignment = System.Windows.HorizontalAlignment.Left;
-TileImg001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-TileImg001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+TileImg001.HorizontalAlignment = WPF.HorizontalAlignment.Left;
+TileImg001.VerticalAlignment = WPF.VerticalAlignment.Top;
+TileImg001.Margin = new WPF.Thickness(leftPos, topPos, 0, 0);
 string imgFile = "c:\\FreePrograms\\MetroLink\\Images\\airtraffic.png";
-TileImg001.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri(imgFile));
+TileImg001.Source = new WPF.Media.Imaging.BitmapImage(new Uri(imgFile));
 hostGrid.Children.Add(TileImg001);
 
-System.Windows.Controls.Label TileLbl001 = new System.Windows.Controls.Label();
+WPF.Controls.Label TileLbl001 = new WPF.Controls.Label();
 TileLbl001.Content="Label";
 TileLbl001.FontSize=8;
-TileLbl001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+TileLbl001.Margin = new WPF.Thickness(leftPos, topPos, 0, 0);
 hostGrid.Children.Add(TileLbl001);
 */
-            //WPFhost.Invoke += new System.Windows.Controls.i
+            //WPFhost.Invoke += new WPF.Controls.i
             Controls.Add(WPFhost);
         }
 
-        void TileMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        void TileMouseDown(object sender, WPF.Input.MouseButtonEventArgs e)
         {
-            var item = sender as System.Windows.Controls.Button;
+            var item = sender as WPF.Controls.Button;
+            /*
+            WPF.Media.Animation.DoubleAnimation da = new WPF.Media.Animation.DoubleAnimation();
+            da.From = item.Width-10;
+            da.To = item.Width;
+            da.Duration = new WPF.Duration(TimeSpan.FromSeconds(1));
+            item.BeginAnimation(WPF.Controls.Button.HeightProperty, da);
+            */            
             switch (e.ChangedButton.ToString())
             {
             case "Left":
@@ -222,7 +234,7 @@ hostGrid.Children.Add(TileLbl001);
             }
         }
 
-        void TileDrop(object sender, System.Windows.DragEventArgs e)
+        void TileDrop(object sender, WPF.DragEventArgs e)
         {
             try
             {
@@ -236,11 +248,11 @@ hostGrid.Children.Add(TileLbl001);
         }
 
         /* Effects on Drag Over
-        void TileDragOver(object sender, System.Windows.DragEventArgs e)
+        void TileDragOver(object sender, WPF.DragEventArgs e)
         {
-            var item = sender as System.Windows.Controls.Button;
+            var item = sender as WPF.Controls.Button;
             Console.WriteLine("drag over " + item.Tag);
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effects = System.Windows.DragDropEffects.Copy;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effects = WPF.DragDropEffects.Copy;
         }
         */
 

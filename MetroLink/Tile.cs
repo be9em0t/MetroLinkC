@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XMLSettingsIO;
+using WPF = System.Windows;
 
 namespace MetroForm
 {
@@ -118,18 +119,18 @@ namespace MetroForm
             return metroClr;
         }
 
-        public System.Windows.Media.SolidColorBrush MetroSolidBrush()
+        public WPF.Media.SolidColorBrush MetroSolidBrush()
         {
             System.Drawing.Color inColor = MetroColor();
-            System.Windows.Media.SolidColorBrush metroSolidBr = new System.Windows.Media.SolidColorBrush();
-            metroSolidBr.Color = System.Windows.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
+            WPF.Media.SolidColorBrush metroSolidBr = new WPF.Media.SolidColorBrush();
+            metroSolidBr.Color = WPF.Media.Color.FromArgb(inColor.A, inColor.R, inColor.G, inColor.B);
             return metroSolidBr;
         }
 
         /*
-        public System.Windows.Style styleTest = new System.Windows.Style
+        public WPF.Style styleTest = new WPF.Style
         {
-            TargetType = typeof(System.Windows.Controls.Control)            
+            TargetType = typeof(WPF.Controls.Control)            
         };
 
         style.Setters.Add(new Setter(Control.ForegroundProperty, Brushes.Green));
@@ -141,9 +142,9 @@ namespace MetroForm
     {
         public int Width { get; set; }
         public int Height { get; set; }
-//            TileBG001.HorizontalAlignment=System.Windows.HorizontalAlignment.Left;
-//            TileBG001.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-//            TileBG001.Margin = new System.Windows.Thickness(leftPos, topPos, 0, 0);
+//            TileBG001.HorizontalAlignment=WPF.HorizontalAlignment.Left;
+//            TileBG001.VerticalAlignment = WPF.VerticalAlignment.Top;
+//            TileBG001.Margin = new WPF.Thickness(leftPos, topPos, 0, 0);
 /*
         public string Title { get; set; }
         public string LMB { get; set; }
