@@ -97,9 +97,48 @@ namespace MetroForm
         /// Redefine styles, if necessary
         public WPF.Style styleLbl = new WPF.Style(typeof(WPF.Controls.Label));
         public WPF.Style styleButt = new WPF.Style(typeof(WPF.Controls.Button));
+        public WPF.Style styleMetroBlu = new WPF.Style(typeof(WPF.Controls.Button));
+
+
+        public void WPFStylesOff()
+        {
+            styleButt.Setters.Add(new WPF.Setter
+            {
+                Property = WPF.Controls.Button.FontSizeProperty,
+                Value = 14.0
+            });
+            styleButt.Setters.Add(new WPF.Setter
+            {
+                Property = WPF.Controls.Button.FontWeightProperty,
+                Value = WPF.FontWeights.Bold    
+            });
+
+            WPF.Trigger triggerIsMouseOver =
+                new WPF.Trigger { Property = WPF.Controls.Button.IsMouseOverProperty, Value = true };
+
+//            triggerIsMouseOver.Setters.Add(
+//              new Setter(Button.ForegroundProperty, Brushes.Black));
+//            triggerIsMouseOver.Setters.Add(
+//              new Setter(Button.BackgroundProperty, Brushes.AliceBlue));
+            triggerIsMouseOver.Setters.Add(new WPF.Setter(WPF.Controls.Button.CursorProperty, System.Windows.Input.Cursors.Hand));
+
+            WPF.Trigger triggerIsPressed = new WPF.Trigger { Property = WPF.Controls.Button.IsPressedProperty, Value = true };
+            triggerIsPressed.Setters.Add(new WPF.Setter(WPF.Controls.Button.BackgroundProperty, WPF.Media.Brushes.Orange));
+
+            styleButt.Triggers.Add(triggerIsMouseOver);
+            styleButt.Triggers.Add(triggerIsPressed);
+
+        }
+
         public void WPFStyles()
+
         {
             ///WPF styles redefinition
+            ///
+
+            //styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.OverridesDefaultStyleProperty, false));
+            //styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.TemplateProperty, true));
+
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.SnapsToDevicePixelsProperty, true));
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.FocusableProperty, false));
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.FocusVisualStyleProperty, null));
@@ -111,6 +150,17 @@ namespace MetroForm
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.PaddingProperty, new WPF.Thickness(-4)));
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderThicknessProperty, new WPF.Thickness(0)));
             styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderBrushProperty, WPF.Media.Brushes.Transparent));
+            //styleButt.Setters.Add(new WPF.Setter(WPF.Controls.Button.BackgroundProperty, WPF.Media.Brushes.Tan));
+            styleMetroBlu.Setters.Add(new WPF.Setter(WPF.Controls.Button.BackgroundProperty, WPF.Media.Brushes.Red));
+            
+            styleButt.BasedOn=styleMetroBlu;
+
+            WPF.Trigger triggerIsPressed = new WPF.Trigger { Property = WPF.Controls.Button.IsPressedProperty, Value = true };
+            triggerIsPressed.Setters.Add(new WPF.Setter(WPF.Controls.Button.BackgroundProperty, WPF.Media.Brushes.Orange));
+            triggerIsPressed.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderThicknessProperty, new WPF.Thickness(0)));
+            triggerIsPressed.Setters.Add(new WPF.Setter(WPF.Controls.Button.BorderBrushProperty, WPF.Media.Brushes.Transparent));
+
+            styleButt.Triggers.Add(triggerIsPressed);
 
             styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.HorizontalAlignmentProperty, WPF.HorizontalAlignment.Left));
             styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.VerticalAlignmentProperty, WPF.VerticalAlignment.Top));
@@ -118,6 +168,7 @@ namespace MetroForm
             styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.FontFamilyProperty, new WPF.Media.FontFamily(SettingsIO.TileFontFamily)));
             styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.FontSizeProperty, SettingsIO.TileFontSize));
             styleLbl.Setters.Add(new WPF.Setter(WPF.Controls.Label.IsHitTestVisibleProperty, false));
+
 
         }
 
@@ -130,7 +181,7 @@ namespace MetroForm
             ElementHost WPFhost = new ElementHost()
             {
                 AllowDrop=false,
-                BackColor = Color.Gray,
+                BackColor = SettingsIO.MetroBackground,
                 Dock = DockStyle.Fill,
                 Child = hostGrid,                
             };
@@ -152,6 +203,7 @@ namespace MetroForm
 
             //int leftPos = Convert.ToDouble( SettingsIO.TileWidth );
             //int topPos = Convert.ToDouble( SettingsIO.TileHeight );
+
             Dictionary<String, WPF.Controls.Button> dictTileBGs = new Dictionary<string, WPF.Controls.Button>(); //Dictionary of TilesBG buttons            
             Dictionary<String, WPF.Controls.Label> dictTileLBLs = new Dictionary<string, WPF.Controls.Label>(); //Dictionary of Tile labels            
 
@@ -159,16 +211,29 @@ namespace MetroForm
             foreach (KeyValuePair<string, Tile> kvp in SettingsIO.dictTiles) //list all
             {
                 ///current TileBG 
+                //WPF.Controls.ControlTemplate template = new WPF.Controls.ControlTemplate(typeof(WPF.Controls.Button));                
+                //WPF.Trigger trigger = new WPF.Trigger();
+
+                //trigger.Property = WPF.Controls.Button.IsPressedProperty;               
+                //trigger.Value = true;
+                //template.Triggers.Add(trigger);
+
                 dictTileBGs.Add(kvp.Key + "bg", new WPF.Controls.Button());
+                //dictTileBGs[kvp.Key + "bg"].Template = template;
+                //dictTileBGs[kvp.Key + "bg"].OverridesDefaultStyle = true;
                 dictTileBGs[kvp.Key + "bg"].Style = styleButt;
+                //dictTileBGs[kvp.Key + "bg"].Style = styleMetroBlue;
+
                 int currentLeftMargin = (kvp.Value.tileColRow()[0] * (SettingsIO.TileWidth + SettingsIO.SpacingTiles)) + SettingsIO.MarginLeft;
                 int currentTopMargin = (kvp.Value.tileColRow()[1] * (SettingsIO.TileHeight + SettingsIO.SpacingTiles)) + SettingsIO.MarginTop;
                 dictTileBGs[kvp.Key + "bg"].Margin = new WPF.Thickness(currentLeftMargin, currentTopMargin, 0, 0);
-                dictTileBGs[kvp.Key + "bg"].Background = kvp.Value.MetroSolidBrush();
+                //dictTileBGs[kvp.Key + "bg"].Background = kvp.Value.MetroSolidBrush();
+                
                 dictTileBGs[kvp.Key + "bg"].Tag = kvp.Key + "bg";
                 dictTileBGs[kvp.Key + "bg"].PreviewMouseDown += new WPF.Input.MouseButtonEventHandler(TileMouseDown);
                 //dictTileBGs[kvp.Key + "bg"].PreviewDragEnter += new WPF.DragEventHandler(TileDragOver); //Could add effects on DragOver
                 dictTileBGs[kvp.Key + "bg"].PreviewDrop += new WPF.DragEventHandler(TileDrop);
+                
 
 
                 ///current Label 
@@ -179,6 +244,7 @@ namespace MetroForm
 
                 dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.Title;
                 //dictTileLBLs[kvp.Key + "lbl"].Content = kvp.Value.BG;
+
 
                 //=========Add WPF elements to grid====================
                 hostGrid.Children.Add(dictTileBGs[kvp.Key + "bg"]);

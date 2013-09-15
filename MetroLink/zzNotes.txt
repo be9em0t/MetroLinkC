@@ -10,7 +10,7 @@ WIP	- define each tile position
 wip		- add below it the tile color as System.Windows.Controls.Button
 		- add over it the tile image as System.Windows.Controls.Image
 		- add the tile title as as System.Windows.Controls.Label
->>>		- add event handlers for left- and right-click
+		- add event handlers for left- and right-click
 		- add event handlers for drag-n-drop
 		-- Tile001 -> TileBg001, TileImg001, TileLbl001
 	- loop to add RunningBadges

@@ -1024,6 +1024,7 @@ F15: 7e
 	<HEXMetroBorder>#fdd02a</HEXMetroBorder>
 	<HEXMetroText>#fafafa</HEXMetroText>
 	<HEXMetroHilite>#ffffff</HEXMetroHilite>
+	<HEXMetroBackground>#303038</HEXMetroBackground>
 </MetroColors>
 
 

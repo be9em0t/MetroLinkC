@@ -37,8 +37,10 @@ namespace XMLSettingsIO
     public static System.Drawing.Color MetroDark = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#303030"));
     public static System.Drawing.Color MetroBorder = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fdd02a"));
     public static System.Drawing.Color MetroText = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#fafafa"));
-    public static System.Drawing.Color MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#ffffff")); 
+    public static System.Drawing.Color MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#ffffff"));
+    public static System.Drawing.Color MetroBackground = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor("#eeeeee")); 
 
+    /*
     public static WPF.Media.SolidColorBrush MetroBlueBrush = new WPF.Media.SolidColorBrush();
     public static WPF.Media.SolidColorBrush MetroGreenBrush = new WPF.Media.SolidColorBrush();
     public static WPF.Media.SolidColorBrush MetroOrangeBrush = new WPF.Media.SolidColorBrush();
@@ -56,7 +58,8 @@ namespace XMLSettingsIO
     public static WPF.Media.SolidColorBrush MetroBorderBrush = new WPF.Media.SolidColorBrush();
     public static WPF.Media.SolidColorBrush MetroTextBrush = new WPF.Media.SolidColorBrush();
     public static WPF.Media.SolidColorBrush MetroHiliteBrush = new WPF.Media.SolidColorBrush();
-
+    public static WPF.Media.SolidColorBrush MetroBackgroundBrush = new WPF.Media.SolidColorBrush();
+    */
     public static int triggerkeyVal = 0x57;
     public static int modKeyVal = 0x2;
 
@@ -274,6 +277,9 @@ namespace XMLSettingsIO
                                     break;
                                         case "hexmetrohilite":
                                     MetroHilite = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
+                                    break;
+                                        case "hexmetrobackground":
+                                    MetroBackground = System.Drawing.Color.FromArgb(GeneralUtils.HEXtoARGBcolor(nodeColor.InnerXml.Trim().ToLower()));
                                     break;
                                         default:
                                     break;
